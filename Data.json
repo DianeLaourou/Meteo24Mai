@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "15:55",
+  "lastUpdate": "16:01",
   "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
   "live": {
     "temp": 29,
@@ -8,49 +8,31 @@
     "ressenti": 33,
     "vent": "SW 15 km/h",
     "humidite": 80,
-    "statusText": "🟠 Vigilance Orange",
-    "statusColor": "status-orange"
+    "statusText": "🟡 Vigilance Jaune",
+    "statusColor": "status-yellow"
   },
   "samedi": [
     {
-      "hour": 6,
+      "hour": 1,
+      "temp": 27,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 4,
       "temp": 26,
-      "icon": "🌫️",
-      "desc": "Brouillard"
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 7,
       "temp": 26,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 8,
-      "temp": 26,
-      "icon": "🌧️",
-      "desc": "Bruine dense"
-    },
-    {
-      "hour": 9,
-      "temp": 27,
       "icon": "🌦️",
-      "desc": "Bruine modérée"
+      "desc": "Bruine légère"
     },
     {
       "hour": 10,
       "temp": 28,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 11,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 12,
-      "temp": 29,
       "icon": "🌦️",
       "desc": "Bruine légère"
     },
@@ -61,32 +43,130 @@
       "desc": "Averses légères"
     },
     {
-      "hour": 14,
-      "temp": 28,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 15,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
       "hour": 16,
       "temp": 28,
       "icon": "☁️",
       "desc": "Couvert"
     },
     {
-      "hour": 17,
+      "hour": 19,
       "temp": 28,
       "icon": "☁️",
       "desc": "Couvert"
     },
     {
-      "hour": 18,
+      "hour": 22,
       "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    }
+  ],
+  "dimanche": [
+    {
+      "hour": 1,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 2,
+      "temp": 27,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 3,
+      "temp": 27,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 4,
+      "temp": 27,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 5,
+      "temp": 26,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 6,
+      "temp": 26,
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
+    },
+    {
+      "hour": 7,
+      "temp": 26,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 8,
+      "temp": 27,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 9,
+      "temp": 28,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 10,
+      "temp": 29,
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
+    },
+    {
+      "hour": 11,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 12,
+      "temp": 30,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 13,
+      "temp": 30,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 14,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Averses légères"
+    },
+    {
+      "hour": 15,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine modérée"
+    },
+    {
+      "hour": 16,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine modérée"
+    },
+    {
+      "hour": 17,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 18,
+      "temp": 29,
       "icon": "☁️",
       "desc": "Couvert"
     },
@@ -117,100 +197,8 @@
     {
       "hour": 23,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
-    }
-  ],
-  "dimanche": [
-    {
-      "hour": 6,
-      "temp": 26,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 7,
-      "temp": 26,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 8,
-      "temp": 27,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 9,
-      "temp": 28,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 10,
-      "temp": 29,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 11,
-      "temp": 29,
       "icon": "🌦️",
       "desc": "Bruine légère"
-    },
-    {
-      "hour": 12,
-      "temp": 30,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 13,
-      "temp": 30,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 14,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Averses légères"
-    },
-    {
-      "hour": 15,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Bruine modérée"
-    },
-    {
-      "hour": 16,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Bruine modérée"
-    },
-    {
-      "hour": 17,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 18,
-      "temp": 29,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 19,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 20,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
     }
   ]
 }
