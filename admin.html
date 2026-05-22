@@ -1,327 +1,374 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METEO-BENIN | Panel d'Administration #Meteo24Mai</title>
-    <style>
-        /* Design Interface d'administration claire (Fond Lumineux/Blanc) */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METEO-BENIN | Panel d'Administration #Meteo24Mai</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
 
-        .admin-container {
-            width: 100%;
-            max-width: 600px;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-        }
+.admin-container {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #008751;
-            padding-bottom: 15px;
-        }
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #008751;
+  padding-bottom: 15px;
+}
 
-        h1 {
-            font-size: 1.5rem;
-            color: #0f172a;
-            margin: 0;
-        }
+h1 { font-size: 1.5rem; color: #0f172a; margin: 0; }
+.subtitle { font-size: 0.9rem; color: #64748b; margin-top: 5px; }
 
-        .subtitle {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-top: 5px;
-        }
+.section-title {
+  font-size: 1.1rem;
+  color: #008751;
+  margin: 20px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
 
-        .section-title {
-            font-size: 1.1rem;
-            color: #008751;
-            margin: 20px 0 10px 0;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e2e8f0;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+.form-group { margin-bottom: 15px; }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #334155;
+}
 
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #334155;
-        }
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  transition: all 0.2s;
+}
 
-        input[type="text"], input[type="number"], textarea, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 0.95rem;
-            background-color: #f1f5f9;
-            color: #1e293b;
-            transition: all 0.2s;
-        }
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #008751;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0,135,81,0.1);
+}
 
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #008751;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.1);
-        }
+/* Sélecteur d'alerte visuel */
+.alert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
 
-        .btn-submit {
-            background-color: #008751;
-            color: white;
-            border: none;
-            padding: 14px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0, 135, 81, 0.2);
-        }
+.alert-option {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  opacity: 0.5;
+}
 
-        .btn-submit:hover {
-            background-color: #00663d;
-        }
+.alert-option.selected { opacity: 1; border-width: 3px; transform: scale(1.02); }
 
-        .status-message {
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            text-align: center;
-            display: none;
-        }
+.alert-vert   { background: rgba(16,185,129,0.15); color: #065f46; border-color: rgba(16,185,129,0.3); }
+.alert-jaune  { background: rgba(245,158,11,0.15); color: #92400e; border-color: rgba(245,158,11,0.3); }
+.alert-orange { background: rgba(234,88,12,0.15);  color: #7c2d12; border-color: rgba(234,88,12,0.3); }
+.alert-rouge  { background: rgba(239,68,68,0.15);  color: #991b1b; border-color: rgba(239,68,68,0.3); }
 
-        .status-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-        .status-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
-        
-        .btn-reset-token {
-            background: none;
-            border: none;
-            color: #ef4444;
-            font-size: 0.8rem;
-            cursor: pointer;
-            text-decoration: underline;
-            float: right;
-            margin-top: 5px;
-        }
-    </style>
-    <script src="config.js"></script>
+.alert-vert.selected   { border-color: #10b981; }
+.alert-jaune.selected  { border-color: #f59e0b; }
+.alert-orange.selected { border-color: #ea580c; }
+.alert-rouge.selected  { border-color: #ef4444; }
+
+.btn-submit {
+  background-color: #008751;
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0,135,81,0.2);
+}
+
+.btn-submit:hover { background-color: #00663d; }
+
+.status-message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+
+.status-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.status-error   { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+.btn-reset-token {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  float: right;
+  margin-top: 5px;
+}
+
+.info-note {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: #166534;
+  margin-bottom: 16px;
+}
+</style>
+<script src="config.js"></script>
 </head>
 <body>
-
 <div class="admin-container">
-    <header>
-        <h1>METEO-BENIN</h1>
-        <div class="subtitle">Console de Prévision en Direct — #Meteo24Mai</div>
-    </header>
 
-    <div id="status-box" class="status-message"></div>
+  <header>
+    <h1>METEO-BENIN</h1>
+    <div class="subtitle">Console de Prévision en Direct — #Meteo24Mai</div>
+  </header>
 
-    <form id="meta-form" onsubmit="publishUpdate(event)">
-        <div class="section-title">🕒 Conditions en Direct (Palais des Congrès)</div>
-        
-        <div class="form-group">
-            <label for="live-temp">Température Actuelle (°C)</label>
-            <input type="number" id="live-temp" required>
-        </div>
+  <div id="status-box" class="status-message"></div>
 
-        <div class="form-group">
-            <label for="live-icon">Icône Météo (Émoji)</label>
-            <select id="live-icon">
-                <option value="☀️">☀️ Ensoleillé / Ciel Clair</option>
-                <option value="⛅">⛅ Éclaircies / Partiellement Nuageux</option>
-                <option value="☁️">☁️ Nuageux / Couvert</option>
-                <option value="🌧️">🌧️ Pluie Légère / Averses</option>
-                <option value="⛈️">⛈️ Orageux / Risque de foudre</option>
-            </select>
-        </div>
+  <div class="info-note">
+    📡 Les <strong>prévisions horaires</strong> (sam. 23 / dim. 24 mai) sont chargées automatiquement depuis Open-Meteo. Seules les conditions en direct et l'alerte sont à saisir manuellement.
+  </div>
 
-        <div class="form-group">
-            <label for="live-desc">Description du Temps</label>
-            <input type="text" id="live-desc" required>
-        </div>
+  <form id="meta-form" onsubmit="publishUpdate(event)">
 
-        <div class="form-group">
-            <label for="live-ressenti">Température Ressentie (°C)</label>
-            <input type="number" id="live-ressenti" required>
-        </div>
+    <div class="section-title">🕒 Conditions en Direct (Palais des Congrès)</div>
 
-        <div class="form-group">
-            <label for="live-vent">Force & Direction du Vent</label>
-            <input type="text" id="live-vent" placeholder="Ex: SW 15 km/h" required>
-        </div>
+    <div class="form-group">
+      <label>Température Actuelle (°C)</label>
+      <input type="number" id="live-temp" required>
+    </div>
 
-        <div class="form-group">
-            <label for="live-humidite">Humidité (%)</label>
-            <input type="number" id="live-humidite" min="0" max="100" required>
-        </div>
+    <div class="form-group">
+      <label>Icône Météo (Émoji)</label>
+      <select id="live-icon">
+        <option value="☀️">☀️ Ensoleillé / Ciel Clair</option>
+        <option value="🌤️">🌤️ Peu nuageux</option>
+        <option value="⛅">⛅ Partiellement Nuageux</option>
+        <option value="☁️">☁️ Nuageux / Couvert</option>
+        <option value="🌧️">🌧️ Pluie / Averses</option>
+        <option value="⛈️">⛈️ Orageux</option>
+      </select>
+    </div>
 
-        <div class="section-title">⚠️ Niveau d'Alerte & Vigilance</div>
-        
-        <div class="form-group">
-            <label for="live-status">Statut de Vigilance</label>
-            <select id="live-status">
-                <option value="status-green|🟢 Conditions Optimales">Vert - Conditions Optimales</option>
-                <option value="status-yellow|🟡 Vigilance Jaune">Jaune - Attention Particulière</option>
-                <option value="status-red|🔴 Alerte Météo">Rouge - Danger / Perturbations</option>
-            </select>
-        </div>
+    <div class="form-group">
+      <label>Description du Temps</label>
+      <input type="text" id="live-desc" required>
+    </div>
 
-        <div class="section-title">📢 Bulletin & Note Flash du Prévisionniste</div>
-        <div class="form-group">
-            <label for="flash-note">Message d'information en direct</label>
-            <textarea id="flash-note" rows="3" required></textarea>
-        </div>
+    <div class="form-group">
+      <label>Température Ressentie (°C)</label>
+      <input type="number" id="live-ressenti" required>
+    </div>
 
-        <button type="submit" class="btn-submit">🚀 Publier les Modifications</button>
-    </form>
+    <div class="form-group">
+      <label>Force & Direction du Vent</label>
+      <input type="text" id="live-vent" placeholder="Ex: SW 15 km/h" required>
+    </div>
 
-    <button class="btn-reset-token" onclick="resetToken()">Changer la clé GitHub Token</button>
+    <div class="form-group">
+      <label>Humidité (%)</label>
+      <input type="number" id="live-humidite" min="0" max="100" required>
+    </div>
+
+    <div class="section-title">⚠️ Niveau d'Alerte</div>
+
+    <div class="alert-grid">
+      <div class="alert-option alert-vert selected" onclick="selectAlert(this, 'status-green', '🟢 Conditions Optimales')">
+        🟢 VERT<br><small>Conditions optimales</small>
+      </div>
+      <div class="alert-option alert-jaune" onclick="selectAlert(this, 'status-yellow', '🟡 Vigilance Jaune')">
+        🟡 JAUNE<br><small>Attention particulière</small>
+      </div>
+      <div class="alert-option alert-orange" onclick="selectAlert(this, 'status-orange', '🟠 Vigilance Orange')">
+        🟠 ORANGE<br><small>Risque modéré</small>
+      </div>
+      <div class="alert-option alert-rouge" onclick="selectAlert(this, 'status-red', '🔴 Alerte Rouge')">
+        🔴 ROUGE<br><small>Danger / Perturbations</small>
+      </div>
+    </div>
+    <input type="hidden" id="alert-color" value="status-green">
+    <input type="hidden" id="alert-text" value="🟢 Conditions Optimales">
+
+    <div class="section-title">📢 Note Flash du Prévisionniste</div>
+
+    <div class="form-group">
+      <label>Message d'information en direct</label>
+      <textarea id="flash-note" rows="3" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">🚀 Publier les Modifications</button>
+  </form>
+
+  <button class="btn-reset-token" onclick="resetToken()">Changer la clé GitHub Token</button>
+
 </div>
 
 <script>
-    let currentData = null;
+let currentData = null;
 
-    // Sauvegarde et vérification du Token en local (Correction setItem en place)
-    function checkToken() {
-        if (!CONFIG.GITHUB_TOKEN) {
-            let savedToken = localStorage.getItem('mon_token_github');
-            if (!savedToken) {
-                savedToken = prompt("Clé de sécurité requise (Entrez votre GitHub Token) :");
-                if (savedToken) {
-                    localStorage.setItem('mon_token_github', savedToken);
-                    CONFIG.GITHUB_TOKEN = savedToken;
-                } else {
-                    showStatus("Erreur : Impossible de travailler sans jeton de sécurité.", "error");
-                }
-            } else {
-                CONFIG.GITHUB_TOKEN = savedToken;
-            }
-        }
+function selectAlert(el, color, text) {
+  document.querySelectorAll('.alert-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('alert-color').value = color;
+  document.getElementById('alert-text').value = text;
+}
+
+function checkToken() {
+  if (!CONFIG.GITHUB_TOKEN) {
+    let saved = localStorage.getItem('mon_token_github');
+    if (!saved) {
+      saved = prompt("Clé de sécurité requise (GitHub Token) :");
+      if (saved) localStorage.setItem('mon_token_github', saved);
+      else { showStatus("Impossible de travailler sans jeton.", "error"); return; }
     }
+    CONFIG.GITHUB_TOKEN = saved;
+  }
+}
 
-    function resetToken() {
-        localStorage.removeItem('mon_token_github');
-        alert("Clé oubliée en mémoire. Le panneau va se recharger pour accepter votre nouvelle clé.");
-        window.location.reload();
+function resetToken() {
+  localStorage.removeItem('mon_token_github');
+  alert("Clé effacée. La page va se recharger.");
+  window.location.reload();
+}
+
+async function fetchCurrentData() {
+  checkToken();
+  try {
+    const res = await fetch(`Data.json?v=${Date.now()}`);
+    currentData = await res.json();
+
+    document.getElementById('live-temp').value = currentData.live.temp;
+    document.getElementById('live-icon').value = currentData.live.icon;
+    document.getElementById('live-desc').value = currentData.live.desc;
+    document.getElementById('live-ressenti').value = currentData.live.ressenti;
+    document.getElementById('live-vent').value = currentData.live.vent;
+    document.getElementById('live-humidite').value = currentData.live.humidite;
+    document.getElementById('flash-note').value = currentData.flashNote;
+
+    // Restaurer la sélection d'alerte
+    const colorMap = {
+      'status-green':  'alert-vert',
+      'status-yellow': 'alert-jaune',
+      'status-orange': 'alert-orange',
+      'status-red':    'alert-rouge'
+    };
+    document.querySelectorAll('.alert-option').forEach(o => o.classList.remove('selected'));
+    const cls = colorMap[currentData.live.statusColor];
+    if (cls) document.querySelector(`.${cls}`)?.classList.add('selected');
+    document.getElementById('alert-color').value = currentData.live.statusColor;
+    document.getElementById('alert-text').value = currentData.live.statusText;
+
+  } catch (e) {
+    showStatus("Erreur de récupération des données.", "error");
+  }
+}
+
+function showStatus(text, type) {
+  const box = document.getElementById('status-box');
+  box.textContent = text;
+  box.className = `status-message status-${type}`;
+  box.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+async function publishUpdate(e) {
+  e.preventDefault();
+  checkToken();
+  showStatus("Publication en cours...", "success");
+
+  const now = new Date();
+  const lastUpdateStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+  currentData.lastUpdate = lastUpdateStr;
+  currentData.flashNote = document.getElementById('flash-note').value;
+  currentData.live = {
+    temp:       parseInt(document.getElementById('live-temp').value),
+    icon:       document.getElementById('live-icon').value,
+    desc:       document.getElementById('live-desc').value,
+    ressenti:   parseInt(document.getElementById('live-ressenti').value),
+    vent:       document.getElementById('live-vent').value,
+    humidite:   parseInt(document.getElementById('live-humidite').value),
+    statusText: document.getElementById('alert-text').value,
+    statusColor:document.getElementById('alert-color').value
+  };
+
+  const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/contents/${CONFIG.FILE_PATH}`;
+
+  try {
+    const fileCheck = await fetch(url, {
+      headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}` }
+    });
+    if (!fileCheck.ok) throw new Error("Accès refusé. Vérifiez que votre token a la permission 'repo'.");
+    const fileData = await fileCheck.json();
+
+    const updateRes = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Authorization": `token ${CONFIG.GITHUB_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: `Mise à jour météo [${lastUpdateStr}]`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentData, null, 2)))),
+        sha: fileData.sha
+      })
+    });
+
+    if (updateRes.ok) {
+      showStatus(`✅ Publié à ${lastUpdateStr}. Le site s'actualise dans quelques secondes...`, "success");
+    } else {
+      const err = await updateRes.json();
+      showStatus(`Échec : ${err.message}`, "error");
     }
+  } catch (error) {
+    showStatus(`Erreur : ${error.message}`, "error");
+  }
+}
 
-    async function fetchCurrentData() {
-        checkToken();
-        try {
-            const res = await fetch(`Data.json?v=${new Date().getTime()}`);
-            currentData = await res.json();
-            
-            // Pré-remplissage des champs du formulaire
-            document.getElementById('live-temp').value = currentData.live.temp;
-            document.getElementById('live-icon').value = currentData.live.icon;
-            document.getElementById('live-desc').value = currentData.live.desc;
-            document.getElementById('live-ressenti').value = currentData.live.ressenti;
-            document.getElementById('live-vent').value = currentData.live.vent;
-            document.getElementById('live-humidite').value = currentData.live.humidite;
-            document.getElementById('flash-note').value = currentData.flashNote;
-            
-            const matchValue = `${currentData.live.statusColor}|${currentData.live.statusText}`;
-            document.getElementById('live-status').value = matchValue;
-        } catch (err) {
-            showStatus("Erreur lors de la récupération des données de base.", "error");
-        }
-    }
-
-    function showStatus(text, type) {
-        const box = document.getElementById('status-box');
-        box.textContent = text;
-        box.className = `status-message status-${type}`;
-        box.style.display = 'block';
-        window.scrollTo(0, 0);
-    }
-
-    async function publishUpdate(e) {
-        e.preventDefault();
-        checkToken();
-        showStatus("Connexion à l'API GitHub et téléversement en cours...", "success");
-
-        const now = new Date();
-        const lastUpdateStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-        
-        const statusParts = document.getElementById('live-status').value.split('|');
-
-        // Reconstruction de l'objet JSON
-        currentData.lastUpdate = lastUpdateStr;
-        currentData.flashNote = document.getElementById('flash-note').value;
-        currentData.live = {
-            temp: parseInt(document.getElementById('live-temp').value),
-            icon: document.getElementById('live-icon').value,
-            desc: document.getElementById('live-desc').value,
-            ressenti: parseInt(document.getElementById('live-ressenti').value),
-            vent: document.getElementById('live-vent').value,
-            humidite: parseInt(document.getElementById('live-humidite').value),
-            statusText: statusParts[1],
-            statusColor: statusParts[0]
-        };
-
-        const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/contents/${CONFIG.FILE_PATH}`;
-        
-        try {
-            // 1. Appel du SHA de validation
-            const fileCheck = await fetch(url, {
-                headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}` }
-            });
-            
-            if(!fileCheck.ok) throw new Error("Accès refusé. Vérifiez que votre jeton a bien la case 'repo' cochée.");
-            
-            const fileData = await fileCheck.json();
-            const sha = fileData.sha;
-
-            // 2. Écriture du fichier distant
-            const updateRes = await fetch(url, {
-                method: "PUT",
-                headers: {
-                    "Authorization": `token ${CONFIG.GITHUB_TOKEN}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    message: `Mise à jour météo officielle [${lastUpdateStr}] par l'administration`,
-                    content: btoa(unescape(encodeURIComponent(JSON.stringify(currentData, null, 4)))),
-                    sha: sha
-                })
-            });
-
-            if(updateRes.ok) {
-                showStatus(`☀️ Succès ! Les modifications ont été publiées à ${lastUpdateStr}. Le site public s'actualise...`, "success");
-            } else {
-                const errJson = await updateRes.json();
-                showStatus(`Échec du téléversement : ${errJson.message}`, "error");
-            }
-        } catch (error) {
-            showStatus(`Erreur de communication : ${error.message}`, "error");
-        }
-    }
-
-    window.onload = fetchCurrentData;
+window.onload = fetchCurrentData;
 </script>
 </body>
 </html>
