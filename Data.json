@@ -1,10 +1,10 @@
 {
-    "lastUpdate": "10:15",
+    "lastUpdate": "14:56",
     "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
     "live": {
         "temp": 31,
-        "icon": "⛅",
-        "desc": "Ciel partiellement nuageux",
+        "icon": "⛈️",
+        "desc": "ORAGES",
         "ressenti": 34,
         "vent": "SW 15 km/h",
         "humidite": 78,
@@ -12,35 +12,175 @@
         "statusColor": "status-green"
     },
     "samedi": [
-        { "hour": 0, "temp": 25, "icon": "🌌", "desc": "Nuit calme" },
-        { "hour": 3, "temp": 25, "icon": "🌌", "desc": "Ciel dégagé" },
-        { "hour": 6, "temp": 26, "icon": "🌅", "desc": "Brume côtière légère" },
-        { "hour": 9, "temp": 28, "icon": "⛅", "desc": "Installation logistique" },
-        { "hour": 12, "temp": 31, "icon": "☀️", "desc": "Ensoleillé et chaud" },
-        { "hour": 15, "temp": 32, "icon": "⛅", "desc": "Arrivée des délégations" },
-        { "hour": 18, "temp": 30, "icon": "⛅", "desc": "Coucher de soleil calme" },
-        { "hour": 21, "temp": 27, "icon": "🌌", "desc": "Derniers préparatifs" }
+        {
+            "hour": 0,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Nuit calme"
+        },
+        {
+            "hour": 3,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Ciel dégagé"
+        },
+        {
+            "hour": 6,
+            "temp": 26,
+            "icon": "🌅",
+            "desc": "Brume côtière légère"
+        },
+        {
+            "hour": 9,
+            "temp": 28,
+            "icon": "⛅",
+            "desc": "Installation logistique"
+        },
+        {
+            "hour": 12,
+            "temp": 31,
+            "icon": "☀️",
+            "desc": "Ensoleillé et chaud"
+        },
+        {
+            "hour": 15,
+            "temp": 32,
+            "icon": "⛅",
+            "desc": "Arrivée des délégations"
+        },
+        {
+            "hour": 18,
+            "temp": 30,
+            "icon": "⛅",
+            "desc": "Coucher de soleil calme"
+        },
+        {
+            "hour": 21,
+            "temp": 27,
+            "icon": "🌌",
+            "desc": "Derniers préparatifs"
+        }
     ],
     "dimanche": [
-        { "hour": 0, "temp": 26, "icon": "🌌", "desc": "Nuit étoilée" },
-        { "hour": 1, "temp": 26, "icon": "🌌", "desc": "Conditions calmes" },
-        { "hour": 2, "temp": 25, "icon": "🌌", "desc": "Conditions calmes" },
-        { "hour": 3, "temp": 25, "icon": "🌌", "desc": "Conditions calmes" },
-        { "hour": 4, "temp": 25, "icon": "🌌", "desc": "Ciel clair" },
-        { "hour": 5, "temp": 25, "icon": "🌌", "desc": "Aube calme" },
-        { "hour": 6, "temp": 26, "icon": "🌅", "desc": "Début de journée doux" },
-        { "hour": 7, "temp": 26, "icon": "⛅", "desc": "Mise en place sécurité" },
-        { "hour": 8, "temp": 27, "icon": "⛅", "desc": "Ouverture des portes" },
-        { "hour": 9, "temp": 29, "icon": "⛅", "desc": "Accueil des invités" },
-        { "hour": 10, "temp": 30, "icon": "☀️", "desc": "Installation officielle" },
-        { "hour": 11, "temp": 31, "icon": "☀️", "desc": "Début de la Cérémonie" },
-        { "hour": 12, "temp": 31, "icon": "☀️", "desc": "Discours d'investiture" },
-        { "hour": 13, "temp": 32, "icon": "⛅", "desc": "Fin de la cérémonie" },
-        { "hour": 14, "temp": 32, "icon": "⛅", "desc": "Déjeuner officiel" },
-        { "hour": 15, "temp": 31, "icon": "⛅", "desc": "Cocktail d'honneur" },
-        { "hour": 16, "temp": 30, "icon": "⛅", "desc": "Début des départs" },
-        { "hour": 17, "temp": 29, "icon": "⛈️", "desc": "Vigilance averses (40%)" },
-        { "hour": 18, "temp": 28, "icon": "⛅", "desc": "Évacuation des risques" },
-        { "hour": 19, "temp": 28, "icon": "⛅", "desc": "Fin du suivi officiel" }
+        {
+            "hour": 0,
+            "temp": 26,
+            "icon": "🌌",
+            "desc": "Nuit étoilée"
+        },
+        {
+            "hour": 1,
+            "temp": 26,
+            "icon": "🌌",
+            "desc": "Conditions calmes"
+        },
+        {
+            "hour": 2,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Conditions calmes"
+        },
+        {
+            "hour": 3,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Conditions calmes"
+        },
+        {
+            "hour": 4,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Ciel clair"
+        },
+        {
+            "hour": 5,
+            "temp": 25,
+            "icon": "🌌",
+            "desc": "Aube calme"
+        },
+        {
+            "hour": 6,
+            "temp": 26,
+            "icon": "🌅",
+            "desc": "Début de journée doux"
+        },
+        {
+            "hour": 7,
+            "temp": 26,
+            "icon": "⛅",
+            "desc": "Mise en place sécurité"
+        },
+        {
+            "hour": 8,
+            "temp": 27,
+            "icon": "⛅",
+            "desc": "Ouverture des portes"
+        },
+        {
+            "hour": 9,
+            "temp": 29,
+            "icon": "⛅",
+            "desc": "Accueil des invités"
+        },
+        {
+            "hour": 10,
+            "temp": 30,
+            "icon": "☀️",
+            "desc": "Installation officielle"
+        },
+        {
+            "hour": 11,
+            "temp": 31,
+            "icon": "☀️",
+            "desc": "Début de la Cérémonie"
+        },
+        {
+            "hour": 12,
+            "temp": 31,
+            "icon": "☀️",
+            "desc": "Discours d'investiture"
+        },
+        {
+            "hour": 13,
+            "temp": 32,
+            "icon": "⛅",
+            "desc": "Fin de la cérémonie"
+        },
+        {
+            "hour": 14,
+            "temp": 32,
+            "icon": "⛅",
+            "desc": "Déjeuner officiel"
+        },
+        {
+            "hour": 15,
+            "temp": 31,
+            "icon": "⛅",
+            "desc": "Cocktail d'honneur"
+        },
+        {
+            "hour": 16,
+            "temp": 30,
+            "icon": "⛅",
+            "desc": "Début des départs"
+        },
+        {
+            "hour": 17,
+            "temp": 29,
+            "icon": "⛈️",
+            "desc": "Vigilance averses (40%)"
+        },
+        {
+            "hour": 18,
+            "temp": 28,
+            "icon": "⛅",
+            "desc": "Évacuation des risques"
+        },
+        {
+            "hour": 19,
+            "temp": 28,
+            "icon": "⛅",
+            "desc": "Fin du suivi officiel"
+        }
     ]
 }
