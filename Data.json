@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "15:52",
+  "lastUpdate": "15:55",
   "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
   "live": {
     "temp": 29,
@@ -15,14 +15,14 @@
     {
       "hour": 6,
       "temp": 26,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "icon": "🌫️",
+      "desc": "Brouillard"
     },
     {
       "hour": 7,
       "temp": 26,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 8,
@@ -125,7 +125,7 @@
     {
       "hour": 6,
       "temp": 26,
-      "icon": "☁️",
+      "icon": "⛅",
       "desc": "Partiellement nuageux"
     },
     {
