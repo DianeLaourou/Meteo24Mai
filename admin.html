@@ -460,19 +460,24 @@ function renderForecastTable(containerId, rows) {
 async function loadOpenMeteo() {
   showStatus("Chargement Open-Meteo...", "loading");
   try {
+    // GMT+1 = Africa/Porto-Novo, on demande les données en UTC et on décale de +1h
     const url = 'https://api.open-meteo.com/v1/forecast'
       + '?latitude=6.3654&longitude=2.4183'
       + '&hourly=temperature_2m,weathercode'
-      + '&timezone=Africa%2FPorto-Novo&forecast_days=3';
+      + '&timezone=Africa%2FPorto-Novo&forecast_days=4';
     const res  = await fetch(url);
     const data = await res.json();
     const times = data.hourly.time, temps = data.hourly.temperature_2m, codes = data.hourly.weathercode;
     let samedi = [], dimanche = [];
     times.forEach((t, i) => {
-      const dt = new Date(t), day = dt.getDate(), month = dt.getMonth()+1, hour = dt.getHours();
+      // t est au format "2025-05-23T01:00" en heure locale GMT+1
+      const dt = new Date(t + ':00+01:00');
+      const day = dt.getDate(), month = dt.getMonth()+1, hour = dt.getHours();
       const entry = { hour, temp: Math.round(temps[i]), icon: WMO_ICONS[codes[i]]||'🌡️', desc: WMO_DESC[codes[i]]||'Variable' };
-      if (day===23 && month===5 && hour>=6)             samedi.push(entry);
-      if (day===24 && month===5 && hour>=6 && hour<=20) dimanche.push(entry);
+      // Samedi : 01h à 23h, de 3 en 3 (01, 04, 07, 10, 13, 16, 19, 22)
+      if (day===23 && month===5 && hour>=1 && (hour-1)%3===0) samedi.push(entry);
+      // Dimanche : 01h à 23h, de 1 en 1
+      if (day===24 && month===5 && hour>=1 && hour<=23)       dimanche.push(entry);
     });
     if (currentData) { currentData.samedi = samedi; currentData.dimanche = dimanche; }
     renderForecastTable('forecast-sat-table', samedi);
