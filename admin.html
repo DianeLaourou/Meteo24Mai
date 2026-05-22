@@ -421,15 +421,32 @@ function switchFTab(day) {
   document.getElementById(`ftab-${day}-content`).classList.add('active');
 }
 
+// Correspondance icône → description par défaut
+const ICON_TO_DESC = {
+  '☀️': 'Ciel dégagé',
+  '🌤️': 'Peu nuageux',
+  '⛅': 'Partiellement nuageux',
+  '☁️': 'Couvert',
+  '🌫️': 'Brouillard',
+  '🌦️': 'Averses légères',
+  '🌧️': 'Pluie modérée',
+  '⛈️': 'Orageux'
+};
+
+function onIconChange(selectEl) {
+  const descInput = selectEl.closest('tr').querySelector('[data-field="desc"]');
+  descInput.value = ICON_TO_DESC[selectEl.value] || descInput.value;
+}
+
 function renderForecastTable(containerId, rows) {
   let html = `<table class="forecast-table">
-    <thead><tr><th>Heure</th><th>Temp °C</th><th>Icône</th><th>Description</th></tr></thead><tbody>`;
+    <thead><tr><th>Heure</th><th>°C</th><th>Icône</th><th>Description</th></tr></thead><tbody>`;
   rows.forEach((r, i) => {
     html += `<tr>
       <td><strong>${String(r.hour).padStart(2,'0')}:00</strong></td>
       <td><input type="number" data-day="${containerId}" data-i="${i}" data-field="temp" value="${r.temp}"></td>
       <td>
-        <select data-day="${containerId}" data-i="${i}" data-field="icon">
+        <select data-day="${containerId}" data-i="${i}" data-field="icon" onchange="onIconChange(this)">
           ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${ic===r.icon?'selected':''}>${ic}</option>`).join('')}
         </select>
       </td>
