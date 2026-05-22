@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>METEO-BENIN | #Meteo24Mai</title>
 <style>
-/* Design Épuré, Lumineux & Professionnel (Fond Blanc) */
 :root {
   --bg-main: #ffffff;
   --card-bg: #f8fafc;
@@ -13,17 +12,13 @@
   --text-main: #0f172a;
   --text-muted: #475569;
   --primary: #008751;
-  --status-green: #10b981;
-  --status-yellow: #f59e0b;
-  --status-red: #ef4444;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -36,12 +31,10 @@ body {
   box-sizing: border-box;
 }
 
-/* Entête */
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
   border-bottom: 2px solid #e2e8f0;
@@ -63,16 +56,14 @@ header {
   font-size: 0.9rem;
   font-weight: bold;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0, 87, 81, 0.2);
 }
 
-/* Cartes */
 .card {
   background: var(--card-bg);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
   border: 1px solid var(--card-border);
 }
 
@@ -83,10 +74,7 @@ header {
   font-size: 0.85rem;
 }
 
-.live-geo {
-  color: var(--text-muted);
-  font-weight: 600;
-}
+.live-geo { color: var(--text-muted); font-weight: 600; }
 
 .update-time {
   background: #cbd5e1;
@@ -107,11 +95,7 @@ header {
   color: var(--text-main);
 }
 
-.weather-desc {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary);
-}
+.weather-desc { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
 
 .weather-details {
   font-size: 0.85rem;
@@ -138,9 +122,10 @@ header {
   text-transform: uppercase;
 }
 
-.status-green { background-color: rgba(16, 185, 129, 0.15); color: #065f46; border: 1px solid rgba(16, 185, 129, 0.3); }
-.status-yellow { background-color: rgba(245, 158, 11, 0.15); color: #92400e; border: 1px solid rgba(245, 158, 11, 0.3); }
-.status-red { background-color: rgba(239, 68, 68, 0.15); color: #991b1b; border: 1px solid rgba(239, 68, 68, 0.3); }
+.status-green  { background: rgba(16,185,129,0.15); color: #065f46; border: 1px solid rgba(16,185,129,0.3); }
+.status-yellow { background: rgba(245,158,11,0.15); color: #92400e; border: 1px solid rgba(245,158,11,0.3); }
+.status-orange { background: rgba(234,88,12,0.15);  color: #7c2d12; border: 1px solid rgba(234,88,12,0.3); }
+.status-red    { background: rgba(239,68,68,0.15);  color: #991b1b; border: 1px solid rgba(239,68,68,0.3); }
 
 h2 {
   font-size: 1rem;
@@ -151,7 +136,6 @@ h2 {
   font-weight: 700;
 }
 
-/* Fil Info */
 .ticker-text {
   background: #f0fdf4;
   border-left: 4px solid var(--primary);
@@ -166,7 +150,6 @@ h2 {
   border-bottom: 1px solid #bbf7d0;
 }
 
-/* Onglets Jours */
 .day-tabs {
   display: flex;
   gap: 8px;
@@ -186,24 +169,11 @@ h2 {
   transition: all 0.2s ease;
 }
 
-.tab-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
+.tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-.forecast-day-content {
-  display: none;
-  max-height: 380px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
+.forecast-day-content { display: none; max-height: 380px; overflow-y: auto; }
+.forecast-day-content.active { display: block; }
 
-.forecast-day-content.active {
-  display: block;
-}
-
-/* Tableau Chrono */
 .table-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1.5fr;
@@ -212,7 +182,6 @@ h2 {
   font-size: 0.9rem;
   align-items: center;
 }
-
 .table-row:last-child { border-bottom: none; }
 .time { font-weight: 700; color: var(--text-main); }
 .temp-col { font-weight: 600; text-align: center; color: var(--text-main); }
@@ -224,6 +193,14 @@ h2 {
   padding: 20px 0;
   font-style: italic;
   font-size: 0.9rem;
+}
+
+.source-tag {
+  text-align: right;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 8px;
+  font-style: italic;
 }
 </style>
 </head>
@@ -251,115 +228,152 @@ h2 {
     <div class="status-badge" id="status-badge">--</div>
   </div>
 
-  <!-- 2. Note Flash (juste après la météo) -->
+  <!-- 2. Note Flash -->
   <h2>Dernière Note Flash</h2>
   <div class="card">
     <div class="ticker-text" id="flash-note">Chargement de la note officielle...</div>
   </div>
 
-  <!-- 3. Prévisions -->
+  <!-- 3. Prévisions Open-Meteo -->
   <h2>Prévisions de l'événement</h2>
   <div class="day-tabs">
     <button class="tab-btn active" id="btn-sat" onclick="switchDay('sat')">Samedi 23 mai</button>
     <button class="tab-btn" id="btn-sun" onclick="switchDay('sun')">Dimanche 24 mai</button>
   </div>
   <div class="card">
-    <div id="day-sat" class="forecast-day-content active"></div>
-    <div id="day-sun" class="forecast-day-content"></div>
+    <div id="day-sat" class="forecast-day-content active"><div class="empty-forecast">Chargement des prévisions...</div></div>
+    <div id="day-sun" class="forecast-day-content"><div class="empty-forecast">Chargement des prévisions...</div></div>
+    <div class="source-tag">📡 Source : Open-Meteo (modèle GFS)</div>
   </div>
 
 </div>
 
 <script>
-let METEO_DATA = null;
-
-async function loadMeteoData() {
+// ─── Données admin (Data.json) ───────────────────────────────
+async function loadAdminData() {
   try {
-    const response = await fetch(`Data.json?v=${new Date().getTime()}`);
-    METEO_DATA = await response.json();
-    updateUI();
-  } catch (error) {
-    console.error("Erreur de synchronisation JSON:", error);
+    const res = await fetch(`Data.json?v=${Date.now()}`);
+    const data = await res.json();
+
+    document.getElementById('last-update').textContent = data.lastUpdate;
+    document.getElementById('flash-note').innerHTML = `<strong>[${data.lastUpdate}]</strong> ${data.flashNote}`;
+    document.getElementById('live-temp').textContent = `${data.live.temp}°C`;
+    document.getElementById('live-icon').textContent = data.live.icon;
+    document.getElementById('live-desc').textContent = data.live.desc;
+    document.getElementById('live-details').textContent =
+      `Ressenti : ${data.live.ressenti}°C | Vent : ${data.live.vent} | Humidité : ${data.live.humidite}%`;
+
+    const badge = document.getElementById('status-badge');
+    badge.textContent = data.live.statusText;
+    badge.className = `status-badge ${data.live.statusColor}`;
+  } catch (e) {
+    console.error("Erreur Data.json:", e);
   }
 }
 
-function updateUI() {
-  if (!METEO_DATA) return;
+// ─── Prévisions Open-Meteo (Cotonou) ────────────────────────
+const WMO_ICONS = {
+  0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️',
+  45:'🌫️', 48:'🌫️',
+  51:'🌦️', 53:'🌦️', 55:'🌧️',
+  61:'🌧️', 63:'🌧️', 65:'🌧️',
+  80:'🌦️', 81:'🌧️', 82:'⛈️',
+  95:'⛈️', 96:'⛈️', 99:'⛈️'
+};
 
-  document.getElementById('last-update').textContent = METEO_DATA.lastUpdate;
-  document.getElementById('flash-note').innerHTML = `<strong>[Le ${METEO_DATA.lastUpdate}]</strong> ${METEO_DATA.flashNote}`;
-  document.getElementById('live-temp').textContent = `${METEO_DATA.live.temp}°C`;
-  document.getElementById('live-icon').textContent = METEO_DATA.live.icon;
-  document.getElementById('live-desc').textContent = METEO_DATA.live.desc;
-  document.getElementById('live-details').textContent = `Ressenti : ${METEO_DATA.live.ressenti}°C | Vent : ${METEO_DATA.live.vent} | Humidité : ${METEO_DATA.live.humidite}%`;
+const WMO_DESC = {
+  0:'Ciel dégagé', 1:'Peu nuageux', 2:'Partiellement nuageux', 3:'Couvert',
+  45:'Brouillard', 48:'Brouillard givrant',
+  51:'Bruine légère', 53:'Bruine modérée', 55:'Bruine dense',
+  61:'Pluie légère', 63:'Pluie modérée', 65:'Pluie forte',
+  80:'Averses légères', 81:'Averses modérées', 82:'Averses violentes',
+  95:'Orageux', 96:'Orage avec grêle', 99:'Orage violent'
+};
 
-  const badge = document.getElementById('status-badge');
-  badge.textContent = METEO_DATA.live.statusText;
-  badge.className = `status-badge ${METEO_DATA.live.statusColor}`;
+async function loadForecast() {
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude=6.3654&longitude=2.4183'
+      + '&hourly=temperature_2m,apparent_temperature,weathercode,windspeed_10m,relativehumidity_2m'
+      + '&timezone=Africa%2FPorto-Novo'
+      + '&forecast_days=3';
 
-  renderForecasts();
-}
+    const res = await fetch(url);
+    const data = await res.json();
 
-function startClock() {
-  const clockElement = document.getElementById('current-clock');
-  setInterval(() => {
+    const times = data.hourly.time;
+    const temps = data.hourly.temperature_2m;
+    const codes = data.hourly.weathercode;
+
     const now = new Date();
-    clockElement.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  }, 1000);
-  setInterval(loadMeteoData, 60000);
-}
+    const currentHour = now.getHours();
 
-function renderForecasts() {
-  if (!METEO_DATA) return;
+    let satHTML = '';
+    let sunHTML = '';
 
-  const now = new Date();
-  const currentDay = now.getDate();
-  const currentHour = now.getHours();
+    times.forEach((t, i) => {
+      const dt = new Date(t);
+      const day = dt.getDate();
+      const month = dt.getMonth() + 1;
+      const hour = dt.getHours();
+      const icon = WMO_ICONS[codes[i]] || '🌡️';
+      const desc = WMO_DESC[codes[i]] || 'Variable';
+      const temp = Math.round(temps[i]);
 
-  const satContainer = document.getElementById('day-sat');
-  const sunContainer = document.getElementById('day-sun');
+      const row = `
+        <div class="table-row">
+          <span class="time">${String(hour).padStart(2,'0')}:00</span>
+          <span class="temp-col">${temp}°C ${icon}</span>
+          <span class="desc-col">${desc}</span>
+        </div>`;
 
-  let satHTML = '';
-  METEO_DATA.samedi.forEach(f => {
-    if (currentDay < 23 || (currentDay === 23 && f.hour >= currentHour) || currentDay > 24) {
-      satHTML += `
-      <div class="table-row">
-        <span class="time">${String(f.hour).padStart(2, '0')}:00</span>
-        <span class="temp-col">${f.temp}°C ${f.icon}</span>
-        <span class="desc-col">${f.desc}</span>
-      </div>`;
-    }
-  });
-  satContainer.innerHTML = satHTML || `<div class="empty-forecast">Aucune prévision à venir pour cette journée.</div>`;
+      // Samedi 23 mai
+      if (day === 23 && month === 5) {
+        if (hour >= 6) satHTML += row;
+      }
+      // Dimanche 24 mai
+      if (day === 24 && month === 5) {
+        if (hour >= 6 && hour <= 20) sunHTML += row;
+      }
+    });
 
-  let sunHTML = '';
-  METEO_DATA.dimanche.forEach(f => {
-    if (currentDay < 24 || (currentDay === 24 && f.hour >= currentHour)) {
-      sunHTML += `
-      <div class="table-row">
-        <span class="time">${String(f.hour).padStart(2, '0')}:00</span>
-        <span class="temp-col">${f.temp}°C ${f.icon}</span>
-        <span class="desc-col">${f.desc}</span>
-      </div>`;
-    }
-  });
-  sunContainer.innerHTML = sunHTML || `<div class="empty-forecast">Fin des prévisions pour l'événement.</div>`;
-}
+    document.getElementById('day-sat').innerHTML =
+      satHTML || '<div class="empty-forecast">Aucune prévision disponible.</div>';
+    document.getElementById('day-sun').innerHTML =
+      sunHTML || '<div class="empty-forecast">Aucune prévision disponible.</div>';
 
-function switchDay(day) {
-  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelectorAll('.forecast-day-content').forEach(content => content.classList.remove('active'));
-  if (day === 'sat') {
-    document.getElementById('btn-sat').classList.add('active');
-    document.getElementById('day-sat').classList.add('active');
-  } else {
-    document.getElementById('btn-sun').classList.add('active');
-    document.getElementById('day-sun').classList.add('active');
+  } catch (e) {
+    console.error("Erreur Open-Meteo:", e);
+    document.getElementById('day-sat').innerHTML = '<div class="empty-forecast">Erreur de chargement des prévisions.</div>';
+    document.getElementById('day-sun').innerHTML = '<div class="empty-forecast">Erreur de chargement des prévisions.</div>';
   }
 }
 
+// ─── Horloge ────────────────────────────────────────────────
+function startClock() {
+  const el = document.getElementById('current-clock');
+  const tick = () => {
+    const now = new Date();
+    el.textContent = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  };
+  tick();
+  setInterval(tick, 1000);
+  setInterval(loadAdminData, 60000);
+  setInterval(loadForecast, 600000); // Rafraîchit prévisions toutes les 10 min
+}
+
+// ─── Onglets ─────────────────────────────────────────────────
+function switchDay(day) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.forecast-day-content').forEach(c => c.classList.remove('active'));
+  document.getElementById(`btn-${day === 'sat' ? 'sat' : 'sun'}`).classList.add('active');
+  document.getElementById(`day-${day === 'sat' ? 'sat' : 'sun'}`).classList.add('active');
+}
+
+// ─── Init ────────────────────────────────────────────────────
 window.onload = () => {
-  loadMeteoData();
+  loadAdminData();
+  loadForecast();
   startClock();
 };
 </script>
