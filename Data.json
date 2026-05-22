@@ -1,186 +1,216 @@
 {
-  "lastUpdate": "15:36",
+  "lastUpdate": "15:52",
   "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
   "live": {
-    "temp": 31,
+    "temp": 29,
     "icon": "🌧️",
     "desc": "orage",
     "ressenti": 33,
     "vent": "SW 15 km/h",
     "humidite": 80,
-    "statusText": "🟡 Vigilance Jaune",
-    "statusColor": "status-yellow"
+    "statusText": "🟠 Vigilance Orange",
+    "statusColor": "status-orange"
   },
   "samedi": [
     {
-      "hour": 0,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Nuit calme"
-    },
-    {
-      "hour": 3,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Ciel dégagé"
-    },
-    {
       "hour": 6,
       "temp": 26,
-      "icon": "🌅",
-      "desc": "Brume côtière légère"
-    },
-    {
-      "hour": 9,
-      "temp": 28,
-      "icon": "⛅",
-      "desc": "Installation logistique"
-    },
-    {
-      "hour": 12,
-      "temp": 31,
-      "icon": "☀️",
-      "desc": "Ensoleillé et chaud"
-    },
-    {
-      "hour": 15,
-      "temp": 32,
-      "icon": "⛅",
-      "desc": "Arrivée des délégations"
-    },
-    {
-      "hour": 18,
-      "temp": 30,
-      "icon": "⛅",
-      "desc": "Coucher de soleil calme"
-    },
-    {
-      "hour": 21,
-      "temp": 27,
-      "icon": "🌌",
-      "desc": "Derniers préparatifs"
-    }
-  ],
-  "dimanche": [
-    {
-      "hour": 0,
-      "temp": 26,
-      "icon": "🌌",
-      "desc": "Nuit étoilée"
-    },
-    {
-      "hour": 1,
-      "temp": 26,
-      "icon": "🌌",
-      "desc": "Conditions calmes"
-    },
-    {
-      "hour": 2,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Conditions calmes"
-    },
-    {
-      "hour": 3,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Conditions calmes"
-    },
-    {
-      "hour": 4,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Ciel clair"
-    },
-    {
-      "hour": 5,
-      "temp": 25,
-      "icon": "🌌",
-      "desc": "Aube calme"
-    },
-    {
-      "hour": 6,
-      "temp": 26,
-      "icon": "🌅",
-      "desc": "Début de journée doux"
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 7,
       "temp": 26,
-      "icon": "⛅",
-      "desc": "Mise en place sécurité"
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 8,
-      "temp": 27,
-      "icon": "⛅",
-      "desc": "Ouverture des portes"
+      "temp": 26,
+      "icon": "🌧️",
+      "desc": "Bruine dense"
     },
     {
       "hour": 9,
-      "temp": 29,
-      "icon": "⛅",
-      "desc": "Accueil des invités"
+      "temp": 27,
+      "icon": "🌦️",
+      "desc": "Bruine modérée"
     },
     {
       "hour": 10,
-      "temp": 30,
-      "icon": "☀️",
-      "desc": "Installation officielle"
+      "temp": 28,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 11,
-      "temp": 31,
-      "icon": "☀️",
-      "desc": "Début de la Cérémonie"
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 12,
-      "temp": 31,
-      "icon": "☀️",
-      "desc": "Discours d'investiture"
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 13,
-      "temp": 32,
-      "icon": "⛅",
-      "desc": "Fin de la cérémonie"
+      "temp": 27,
+      "icon": "🌦️",
+      "desc": "Averses légères"
     },
     {
       "hour": 14,
-      "temp": 32,
-      "icon": "⛅",
-      "desc": "Déjeuner officiel"
+      "temp": 28,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
     },
     {
       "hour": 15,
-      "temp": 31,
-      "icon": "⛅",
-      "desc": "Cocktail d'honneur"
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 16,
-      "temp": 30,
-      "icon": "⛅",
-      "desc": "Début des départs"
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 17,
-      "temp": 29,
-      "icon": "⛈️",
-      "desc": "Vigilance averses (40%)"
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 18,
       "temp": 28,
-      "icon": "⛅",
-      "desc": "Évacuation des risques"
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 19,
       "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 20,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 21,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 22,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 23,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    }
+  ],
+  "dimanche": [
+    {
+      "hour": 6,
+      "temp": 26,
+      "icon": "☁️",
+      "desc": "Partiellement nuageux"
+    },
+    {
+      "hour": 7,
+      "temp": 26,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 8,
+      "temp": 27,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 9,
+      "temp": 28,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
+    },
+    {
+      "hour": 10,
+      "temp": 29,
       "icon": "⛅",
-      "desc": "Fin du suivi officiel"
+      "desc": "Partiellement nuageux"
+    },
+    {
+      "hour": 11,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 12,
+      "temp": 30,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 13,
+      "temp": 30,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 14,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Averses légères"
+    },
+    {
+      "hour": 15,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine modérée"
+    },
+    {
+      "hour": 16,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine modérée"
+    },
+    {
+      "hour": 17,
+      "temp": 29,
+      "icon": "🌦️",
+      "desc": "Bruine légère"
+    },
+    {
+      "hour": 18,
+      "temp": 29,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 19,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
+    },
+    {
+      "hour": 20,
+      "temp": 28,
+      "icon": "☁️",
+      "desc": "Couvert"
     }
   ]
 }
