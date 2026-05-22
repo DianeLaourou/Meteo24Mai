@@ -1,15 +1,15 @@
 {
-    "lastUpdate": "15:04",
+    "lastUpdate": "15:08",
     "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
     "live": {
         "temp": 29,
         "icon": "⛈️",
-        "desc": "ORAGES",
+        "desc": "Ciel partiellement nuageux",
         "ressenti": 34,
         "vent": "SW 15 km/h",
-        "humidite": 78,
-        "statusText": "🟢 Conditions Optimales",
-        "statusColor": "status-green"
+        "humidite": 80,
+        "statusText": "🔴 Alerte Météo",
+        "statusColor": "status-red"
     },
     "samedi": [
         {
