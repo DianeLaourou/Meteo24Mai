@@ -189,7 +189,21 @@ function startClock() {
   setInterval(loadData, 180000);
 }
 
-window.onload = () => { loadData(); startClock(); };
+window.onload = () => {
+  const today = new Date().getDate();
+  if (today >= 24) {
+    // Masquer complètement l'onglet Samedi
+    document.getElementById('btn-sat').style.display = 'none';
+    document.getElementById('day-sat').style.display = 'none';
+    // Activer Dimanche
+    document.getElementById('btn-sun').classList.add('active');
+    document.getElementById('day-sun').classList.add('active');
+    document.getElementById('btn-sat').classList.remove('active');
+    document.getElementById('day-sat').classList.remove('active');
+  }
+  loadData();
+  startClock();
+};
 </script>
 </body>
 </html>
