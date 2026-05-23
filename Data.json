@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "16:50",
-  "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou cet après-midi.",
+  "lastUpdate": "18:01",
+  "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou ce soir.",
   "live": {
     "temp": 31,
-    "icon": "⛅",
+    "icon": "🌤️",
     "desc": "Partiellement ensoleillé",
     "ressenti": 35,
-    "vent": "E 17km/h",
-    "humidite": 70,
+    "vent": "SE 17km/h",
+    "humidite": 73,
     "statusText": "🟢 Conditions Optimales",
     "statusColor": "status-green"
   },
@@ -45,8 +45,8 @@
     {
       "hour": 16,
       "temp": 31,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 19,
@@ -56,95 +56,95 @@
     },
     {
       "hour": 22,
-      "temp": 28,
+      "temp": 29,
       "icon": "☁️",
-      "desc": "Couvert"
+      "desc": "Partiellement nuageux"
     }
   ],
   "dimanche": [
     {
       "hour": 1,
-      "temp": 27,
+      "temp": 28,
       "icon": "☁️",
-      "desc": "Couvert"
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 2,
       "temp": 27,
       "icon": "☁️",
-      "desc": "Couvert"
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 3,
-      "temp": 26,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "temp": 27,
+      "icon": "🌧️",
+      "desc": "Averses légères"
     },
     {
       "hour": 4,
-      "temp": 26,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "temp": 27,
+      "icon": "🌧️",
+      "desc": "Averses légères"
     },
     {
       "hour": 5,
       "temp": 26,
       "icon": "☁️",
-      "desc": "Couvert"
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 6,
       "temp": 26,
       "icon": "☁️",
-      "desc": "Couvert"
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 7,
       "temp": 26,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "🌦️",
+      "desc": "Pluies faibles"
     },
     {
       "hour": 8,
       "temp": 27,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "🌦️",
+      "desc": "Pluies faibles"
     },
     {
       "hour": 9,
       "temp": 28,
       "icon": "🌦️",
-      "desc": "Faibles pluies"
+      "desc": "Pluies faibles"
     },
     {
       "hour": 10,
       "temp": 29,
-      "icon": "🌦️",
-      "desc": "Faibles pluies"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 11,
       "temp": 30,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 12,
       "temp": 31,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 13,
-      "temp": 30,
+      "temp": 31,
       "icon": "🌤️",
       "desc": "Peu nuageux"
     },
     {
       "hour": 14,
-      "temp": 31,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "temp": 32,
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
     },
     {
       "hour": 15,
@@ -154,7 +154,7 @@
     },
     {
       "hour": 16,
-      "temp": 32,
+      "temp": 31,
       "icon": "⛈️",
       "desc": "Orageux"
     },
@@ -166,39 +166,39 @@
     },
     {
       "hour": 18,
-      "temp": 29,
+      "temp": 31,
       "icon": "⛈️",
       "desc": "Orageux"
     },
     {
       "hour": 19,
-      "temp": 28,
+      "temp": 30,
       "icon": "⛈️",
       "desc": "Orageux"
     },
     {
       "hour": 20,
       "temp": 28,
-      "icon": "🌧️",
-      "desc": "Pluie modérée"
+      "icon": "⛈️",
+      "desc": "Orageux"
     },
     {
       "hour": 21,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "icon": "⛈️",
+      "desc": "Orageux"
     },
     {
       "hour": 22,
       "temp": 28,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "icon": "⛈️",
+      "desc": "Orageux"
     },
     {
       "hour": 23,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "icon": "⛈️",
+      "desc": "Orageux"
     }
   ]
 }
