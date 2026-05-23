@@ -244,12 +244,28 @@ input:focus, textarea:focus, select:focus {
     <div class="form-group">
       <label>Icône Météo</label>
       <select id="live-icon">
-        <option value="☀️">☀️ Ensoleillé</option>
-        <option value="🌤️">🌤️ Peu nuageux</option>
-        <option value="⛅">⛅ Partiellement nuageux</option>
-        <option value="☁️">☁️ Nuageux / Couvert</option>
-        <option value="🌧️">🌧️ Pluie / Averses</option>
-        <option value="⛈️">⛈️ Orageux</option>
+        <optgroup label="☀️ Journée">
+          <option value="☀️">☀️ Ensoleillé / Ciel dégagé</option>
+          <option value="🌤️">🌤️ Peu nuageux</option>
+          <option value="⛅">⛅ Partiellement nuageux</option>
+          <option value="🌥️">🌥️ Très nuageux</option>
+          <option value="☁️">☁️ Couvert</option>
+          <option value="🌦️">🌦️ Averses légères</option>
+          <option value="🌧️">🌧️ Pluie modérée</option>
+          <option value="⛈️">⛈️ Orageux</option>
+          <option value="🌩️">🌩️ Orages intenses</option>
+          <option value="🌫️">🌫️ Brouillard / Brume</option>
+        </optgroup>
+        <optgroup label="🌙 Nuit">
+          <option value="🌙">🌙 Nuit claire</option>
+          <option value="🌛">🌛 Nuit peu nuageuse</option>
+          <option value="🌜">🌜 Nuit partiellement nuageuse</option>
+          <option value="🌚">🌚 Nuit nuageuse / Couverte</option>
+          <option value="🌧️">🌧️ Pluie nocturne</option>
+          <option value="⛈️">⛈️ Orages nocturnes</option>
+          <option value="🌩️">🌩️ Orages nocturnes intenses</option>
+          <option value="🌫️">🌫️ Brouillard nocturne</option>
+        </optgroup>
       </select>
     </div>
     <div class="form-group">
@@ -405,7 +421,7 @@ const WMO_DESC = {
   80:'Averses légères',81:'Averses modérées',82:'Averses violentes',
   95:'Orageux',96:'Orage avec grêle',99:'Orage violent'
 };
-const ICON_OPTIONS = ['☀️','🌤️','⛅','☁️','🌫️','🌦️','🌧️','⛈️'];
+const ICON_OPTIONS = ['☀️','🌤️','⛅','🌥️','☁️','🌦️','🌧️','⛈️','🌩️','🌫️','🌙','🌛','🌜','🌚'];
 
 function selectAlert(el, color, text) {
   document.querySelectorAll('.alert-option').forEach(o => o.classList.remove('selected'));
@@ -426,11 +442,17 @@ const ICON_TO_DESC = {
   '☀️': 'Ciel dégagé',
   '🌤️': 'Peu nuageux',
   '⛅': 'Partiellement nuageux',
+  '🌥️': 'Très nuageux',
   '☁️': 'Couvert',
-  '🌫️': 'Brouillard',
   '🌦️': 'Averses légères',
   '🌧️': 'Pluie modérée',
-  '⛈️': 'Orageux'
+  '⛈️': 'Orageux',
+  '🌩️': 'Orages intenses',
+  '🌫️': 'Brouillard / Brume',
+  '🌙': 'Nuit claire',
+  '🌛': 'Nuit peu nuageuse',
+  '🌜': 'Nuit partiellement nuageuse',
+  '🌚': 'Nuit nuageuse / Couverte',
 };
 
 function onIconChange(selectEl) {
