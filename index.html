@@ -23,7 +23,6 @@ body {
   min-height: 100vh;
 }
 .app-container { width: 100%; max-width: 480px; padding: 16px; box-sizing: border-box; }
-
 header {
   display: flex; flex-direction: column; align-items: center;
   gap: 10px; margin-bottom: 20px;
@@ -48,15 +47,12 @@ header {
 .weather-desc { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
 .weather-details { font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-weight: 500; }
 .user-clock { font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; text-align: right; font-style: italic; }
-
 .status-badge { padding: 10px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 0.9rem; margin-top: 15px; text-transform: uppercase; }
 .status-green  { background: rgba(16,185,129,0.15); color: #065f46; border: 1px solid rgba(16,185,129,0.3); }
 .status-yellow { background: rgba(245,158,11,0.15); color: #92400e; border: 1px solid rgba(245,158,11,0.3); }
 .status-orange { background: rgba(234,88,12,0.15);  color: #7c2d12; border: 1px solid rgba(234,88,12,0.3); }
 .status-red    { background: rgba(239,68,68,0.15);  color: #991b1b; border: 1px solid rgba(239,68,68,0.3); }
-
 h2 { font-size: 1rem; color: var(--text-main); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; font-weight: 700; }
-
 .ticker-text {
   background: #f0fdf4; border-left: 4px solid var(--primary);
   padding: 12px; border-radius: 0 8px 8px 0;
@@ -88,7 +84,6 @@ h2 { font-size: 1rem; color: var(--text-main); text-transform: uppercase; margin
     <span class="hashtag">#Meteo24Mai</span>
   </header>
 
-  <!-- Météo actuelle -->
   <div class="card">
     <div class="live-header">
       <span class="live-geo">📍 PALAIS DES CONGRÈS, COTONOU</span>
@@ -104,13 +99,11 @@ h2 { font-size: 1rem; color: var(--text-main); text-transform: uppercase; margin
     <div class="status-badge" id="status-badge">--</div>
   </div>
 
-  <!-- Note Flash -->
   <h2>Dernière Note Flash</h2>
   <div class="card">
     <div class="ticker-text" id="flash-note">Chargement...</div>
   </div>
 
-  <!-- Prévisions (depuis Data.json, validées par le prévisionniste) -->
   <h2>Prévisions de l'événement</h2>
   <div class="day-tabs">
     <button class="tab-btn active" id="btn-sat" onclick="switchDay('sat')">Samedi 23 mai</button>
@@ -125,7 +118,7 @@ h2 { font-size: 1rem; color: var(--text-main); text-transform: uppercase; margin
 <script>
 async function loadData() {
   try {
-    const res = await fetch(`Data.json?v=${Date.now()}`);
+    const res  = await fetch(`Data.json?v=${Date.now()}`);
     const data = await res.json();
 
     document.getElementById('last-update').textContent = data.lastUpdate;
@@ -138,34 +131,51 @@ async function loadData() {
 
     const badge = document.getElementById('status-badge');
     badge.textContent = data.live.statusText;
-    badge.className = `status-badge ${data.live.statusColor}`;
+    badge.className   = `status-badge ${data.live.statusColor}`;
 
-    renderDay('day-sat', data.samedi   || []);
-    renderDay('day-sun', data.dimanche || []);
+    renderDay('day-sat', data.samedi   || [], 23);
+    renderDay('day-sun', data.dimanche || [], 24);
   } catch(e) {
     console.error("Erreur Data.json:", e);
   }
 }
 
-function renderDay(containerId, rows) {
+function renderDay(containerId, rows, targetDay) {
   if (!rows.length) {
-    document.getElementById(containerId).innerHTML = '<div class="empty-forecast">Aucune prévision disponible.</div>';
+    document.getElementById(containerId).innerHTML =
+      '<div class="empty-forecast">Aucune prévision disponible.</div>';
     return;
   }
-  const html = rows.map(r => `
+
+  const now         = new Date();
+  const currentDay  = now.getDate();
+  const currentHour = now.getHours();
+
+  const filtered = rows.filter(r => {
+    if (currentDay < targetDay)  return true;   // jour pas encore arrivé → tout afficher
+    if (currentDay > targetDay)  return false;  // jour déjà passé → rien afficher
+    return r.hour >= currentHour;               // jour en cours → heures à venir seulement
+  });
+
+  if (!filtered.length) {
+    document.getElementById(containerId).innerHTML =
+      '<div class="empty-forecast">Aucune prévision à venir pour cette journée.</div>';
+    return;
+  }
+
+  document.getElementById(containerId).innerHTML = filtered.map(r => `
     <div class="table-row">
       <span class="time">${String(r.hour).padStart(2,'0')}:00</span>
       <span class="temp-col">${r.temp}°C ${r.icon}</span>
       <span class="desc-col">${r.desc}</span>
     </div>`).join('');
-  document.getElementById(containerId).innerHTML = html;
 }
 
 function switchDay(day) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.forecast-day-content').forEach(c => c.classList.remove('active'));
-  document.getElementById(`btn-${day==='sat'?'sat':'sun'}`).classList.add('active');
-  document.getElementById(`day-${day==='sat'?'sat':'sun'}`).classList.add('active');
+  document.getElementById(`btn-${day === 'sat' ? 'sat' : 'sun'}`).classList.add('active');
+  document.getElementById(`day-${day === 'sat' ? 'sat' : 'sun'}`).classList.add('active');
 }
 
 function startClock() {
