@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "14:36",
+  "lastUpdate": "14:37",
   "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou cet après-midi.",
   "live": {
     "temp": 30,
@@ -149,8 +149,8 @@
     {
       "hour": 15,
       "temp": 29,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
     },
     {
       "hour": 16,
@@ -173,8 +173,8 @@
     {
       "hour": 19,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 20,
