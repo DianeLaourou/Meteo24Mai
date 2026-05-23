@@ -1,15 +1,15 @@
 {
-  "lastUpdate": "07:46",
+  "lastUpdate": "07:50",
   "flashNote": "Aucune perturbation pluvieuse n'est attendue sur Cotonou d'ici la fin de la matinée. Les conditions restent idéales pour le protocole en extérieur.",
   "live": {
-    "temp": 29,
-    "icon": "🌧️",
-    "desc": "orage",
-    "ressenti": 33,
-    "vent": "SW 15 km/h",
-    "humidite": 80,
-    "statusText": "🟡 Vigilance Jaune",
-    "statusColor": "status-yellow"
+    "temp": 25,
+    "icon": "⛅",
+    "desc": "Partiellement nuaheux",
+    "ressenti": 32,
+    "vent": "Est 2km/h",
+    "humidite": 97,
+    "statusText": "🟢 Conditions Optimales",
+    "statusColor": "status-green"
   },
   "samedi": [
     {
@@ -27,38 +27,38 @@
     {
       "hour": 7,
       "temp": 26,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 10,
-      "temp": 27,
-      "icon": "🌧️",
-      "desc": "Pluie légère"
+      "temp": 28,
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 13,
-      "temp": 28,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
+      "temp": 29,
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 16,
-      "temp": 29,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "temp": 30,
+      "icon": "⛈️",
+      "desc": "Orageux"
     },
     {
       "hour": 19,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "temp": 29,
+      "icon": "⛈️",
+      "desc": "Orageux"
     },
     {
       "hour": 22,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
+      "icon": "⛈️",
+      "desc": "Orageux"
     }
   ],
   "dimanche": [
