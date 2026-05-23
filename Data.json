@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "18:01",
+  "lastUpdate": "19:08",
   "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou ce soir.",
   "live": {
-    "temp": 31,
-    "icon": "🌤️",
+    "temp": 30,
+    "icon": "⛅",
     "desc": "Partiellement ensoleillé",
-    "ressenti": 35,
+    "ressenti": 34,
     "vent": "SE 17km/h",
-    "humidite": 73,
+    "humidite": 74,
     "statusText": "🟢 Conditions Optimales",
     "statusColor": "status-green"
   },
