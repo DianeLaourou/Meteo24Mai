@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "15:26",
+  "lastUpdate": "16:50",
   "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou cet après-midi.",
   "live": {
     "temp": 31,
     "icon": "⛅",
     "desc": "Partiellement ensoleillé",
-    "ressenti": 36,
+    "ressenti": 35,
     "vent": "E 17km/h",
-    "humidite": 73,
+    "humidite": 70,
     "statusText": "🟢 Conditions Optimales",
     "statusColor": "status-green"
   },
