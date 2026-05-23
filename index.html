@@ -186,7 +186,7 @@ function startClock() {
   };
   tick();
   setInterval(tick, 1000);
-  setInterval(loadData, 60000);
+  setInterval(loadData, 180000);
 }
 
 window.onload = () => { loadData(); startClock(); };
