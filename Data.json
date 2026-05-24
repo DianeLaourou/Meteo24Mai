@@ -1,15 +1,15 @@
 {
-  "lastUpdate": "18:17",
-  "flashNote": "Orages et de pluie sur la bande côtière en cours.Restez prudents sur les routes; Evitez les activités en plein air pendant les orages;\nSuivez les mises à jour des prévisions météorologiques.",
+  "lastUpdate": "19:02",
+  "flashNote": "Accalmie avec un ciel très nuageux sur la bande côtière.\nSuivez les mises à jour des prévisions météorologiques.",
   "live": {
-    "temp": 28,
+    "temp": 26,
     "icon": "⛈️",
     "desc": "Très nuageux avec orages et pluie",
-    "ressenti": 36,
-    "vent": "SS0 20km/h",
-    "humidite": 77,
-    "statusText": "🟡 Vigilance Jaune",
-    "statusColor": "status-yellow"
+    "ressenti": 27,
+    "vent": "SS0 19km/h",
+    "humidite": 93,
+    "statusText": "🟢 Conditions Optimales",
+    "statusColor": "status-green"
   },
   "samedi": [
     {
@@ -154,49 +154,49 @@
     },
     {
       "hour": 16,
-      "temp": 30,
+      "temp": 26,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 17,
-      "temp": 28,
+      "temp": 25,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 18,
-      "temp": 28,
+      "temp": 25,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 19,
-      "temp": 27,
+      "temp": 26,
       "icon": "⛈️",
-      "desc": "Orageux et pluvieux"
+      "desc": "Orageux"
     },
     {
       "hour": 20,
       "temp": 27,
       "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "desc": "Très nuageux"
     },
     {
       "hour": 21,
       "temp": 27,
       "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "desc": "Très nuageux"
     },
     {
       "hour": 22,
-      "temp": 28,
+      "temp": 27,
       "icon": "⛅",
       "desc": "Partiellement nuageux"
     },
     {
       "hour": 23,
-      "temp": 28,
+      "temp": 27,
       "icon": "⛅",
       "desc": "Partiellement nuageux"
     }
