@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "19:04",
+  "lastUpdate": "20:09",
   "flashNote": "Accalmie avec un ciel très nuageux sur la bande côtière.\nSuivez les mises à jour des prévisions météorologiques.",
   "live": {
     "temp": 26,
-    "icon": "⛈️",
+    "icon": "☁️",
     "desc": "Accalmie avec ciel très nuageux ",
-    "ressenti": 27,
-    "vent": "SS0 19km/h",
-    "humidite": 93,
+    "ressenti": 30,
+    "vent": "ONO 6km/h",
+    "humidite": 88,
     "statusText": "🟢 Conditions Optimales",
     "statusColor": "status-green"
   },
@@ -190,15 +190,15 @@
     },
     {
       "hour": 22,
-      "temp": 27,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "temp": 26,
+      "icon": "☁️",
+      "desc": "Couvert"
     },
     {
       "hour": 23,
       "temp": 27,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "☁️",
+      "desc": "Couvert"
     }
   ]
 }
