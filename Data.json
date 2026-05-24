@@ -1,8 +1,8 @@
 {
-  "lastUpdate": "09:10",
+  "lastUpdate": "09:26",
   "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou d'ici la fin de la  matinée.Les conditions restent favorables aux activités en plein air.",
   "live": {
-    "temp": 28,
+    "temp": 30,
     "icon": "⛅",
     "desc": "Partiellement nuageux",
     "ressenti": 34,
@@ -112,13 +112,13 @@
     },
     {
       "hour": 9,
-      "temp": 29,
+      "temp": 30,
       "icon": "🌤️",
       "desc": "Peu nuageux"
     },
     {
       "hour": 10,
-      "temp": 30,
+      "temp": 31,
       "icon": "🌤️",
       "desc": "Peu nuageux"
     },
