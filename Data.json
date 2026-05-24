@@ -1,11 +1,11 @@
 {
-  "lastUpdate": "15:16",
+  "lastUpdate": "16:09",
   "flashNote": "Risque d'orages et de pluie sur la bande côtière dans les prochaines heures.Restez prudents sur les routes; Evitez les activités en plein air pendant les orages;\nSuivez les mises à jour des prévisions météorologiques.",
   "live": {
-    "temp": 31,
-    "icon": "⛅",
-    "desc": "Partiellement nuageux",
-    "ressenti": 38,
+    "temp": 30,
+    "icon": "⛈️",
+    "desc": "Partiellement nuageux avec orages et pluie",
+    "ressenti": 37,
     "vent": "SS0 22km/h",
     "humidite": 68,
     "statusText": "🟡 Vigilance Jaune",
