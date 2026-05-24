@@ -1,15 +1,15 @@
 {
-  "lastUpdate": "14:18",
-  "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou d'ici le milieu d'après-midi.Les conditions restent favorables aux activités en plein air.",
+  "lastUpdate": "15:16",
+  "flashNote": "Risque d'orages et de pluie sur la bande côtière dans les prochaines heures.Restez prudents sur les routes; Evitez les activités en plein air pendant les orages;\nSuivez les mises à jour des prévisions météorologiques.",
   "live": {
     "temp": 31,
-    "icon": "🌤️",
-    "desc": "Peu nuageux",
+    "icon": "⛅",
+    "desc": "Partiellement nuageux",
     "ressenti": 38,
-    "vent": "SS0 20km/h",
-    "humidite": 64,
-    "statusText": "🟢 Conditions Optimales",
-    "statusColor": "status-green"
+    "vent": "SS0 22km/h",
+    "humidite": 68,
+    "statusText": "🟡 Vigilance Jaune",
+    "statusColor": "status-yellow"
   },
   "samedi": [
     {
@@ -154,37 +154,37 @@
     },
     {
       "hour": 16,
-      "temp": 31,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "temp": 30,
+      "icon": "⛈️",
+      "desc": "Orageux et pluvieux"
     },
     {
       "hour": 17,
-      "temp": 30,
+      "temp": 29,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 18,
-      "temp": 30,
+      "temp": 28,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 19,
-      "temp": 30,
+      "temp": 27,
       "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 20,
-      "temp": 29,
+      "temp": 27,
       "icon": "⛅",
       "desc": "Partiellement nuageux"
     },
     {
       "hour": 21,
-      "temp": 29,
+      "temp": 27,
       "icon": "⛅",
       "desc": "Partiellement nuageux"
     },
