@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "08:20",
+  "lastUpdate": "08:37",
   "flashNote": "Pas de perturbation pluvieuse majeure sur Cotonou d'ici la fin de la  matinée.Les conditions restent favorables aux activités en plein air.",
   "live": {
     "temp": 28,
@@ -107,14 +107,14 @@
     {
       "hour": 8,
       "temp": 28,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
     },
     {
       "hour": 9,
       "temp": 29,
-      "icon": "🌦️",
-      "desc": "partiellement ensoleillé"
+      "icon": "🌤️",
+      "desc": "Peu nuageux"
     },
     {
       "hour": 10,
@@ -132,13 +132,13 @@
       "hour": 12,
       "temp": 32,
       "icon": "⛅",
-      "desc": "Peu nuageux et ensoleillé"
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 13,
       "temp": 32,
-      "icon": "⛈️",
-      "desc": "Peu nuageux et ensoleillé"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 14,
@@ -155,50 +155,50 @@
     {
       "hour": 16,
       "temp": 31,
-      "icon": "🌦️",
-      "desc": "Partiellement nuageux et orageux"
+      "icon": "⛈️",
+      "desc": "Orageux et pluvieux"
     },
     {
       "hour": 17,
       "temp": 30,
-      "icon": "☁️",
+      "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 18,
       "temp": 30,
-      "icon": "☁️",
+      "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 19,
       "temp": 30,
-      "icon": "☁️",
+      "icon": "⛈️",
       "desc": "Orageux et pluvieux"
     },
     {
       "hour": 20,
       "temp": 29,
-      "icon": "🌦️",
-      "desc": "très nuageux"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 21,
       "temp": 29,
-      "icon": "☁️",
-      "desc": "très nuageux"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 22,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "modérément nuageux"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     },
     {
       "hour": 23,
       "temp": 28,
-      "icon": "☁️",
-      "desc": "modérément nuageux"
+      "icon": "⛅",
+      "desc": "Partiellement nuageux"
     }
   ]
 }
