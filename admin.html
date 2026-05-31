@@ -3,288 +3,530 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>METEO-BENIN | #Meteo1erJuin</title>
+<title>METEO-BENIN | Panel d'Administration #Meteo1erJuin</title>
 <style>
-:root {
-  --bg-main: #ffffff;
-  --card-bg: #f8fafc;
-  --card-border: #e2e8f0;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --primary: #008751;
-  --status-green: #10b981;
-  --status-yellow: #f59e0b;
-  --status-red: #ef4444;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  background-color: #f8fafc;
+  color: #1e293b;
   margin: 0;
-  padding: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
 }
 
-.app-container {
+.admin-container {
   width: 100%;
-  max-width: 480px;
-  padding: 16px;
-  box-sizing: border-box;
+  max-width: 640px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 16px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #008751;
+  padding-bottom: 15px;
 }
 
-.logo-meteo {
-  width: 85%;
-  max-width: 320px;
-  height: auto;
-  object-fit: contain;
-}
+h1 { font-size: 1.5rem; color: #0f172a; margin: 0; }
+.subtitle { font-size: 0.9rem; color: #64748b; margin-top: 5px; }
 
-.hashtag {
-  background: var(--primary);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+.section-title {
+  font-size: 1rem;
+  color: #008751;
+  margin: 22px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0, 87, 81, 0.2);
 }
 
-.card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--card-border);
+.form-group { margin-bottom: 15px; }
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #334155;
 }
 
-.live-header {
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  transition: all 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #008751;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.1);
+}
+
+.btn-submit {
+  background-color: #008751;
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 135, 81, 0.2);
+}
+.btn-submit:hover { background-color: #00663d; }
+
+.btn-refresh {
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 6px;
+}
+.btn-refresh:hover { background-color: #0284c7; }
+.btn-refresh:disabled { background-color: #94a3b8; cursor: not-allowed; }
+
+.status-message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+}
+.status-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.status-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+.status-info { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+.btn-reset-token {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  float: right;
+  margin-top: 5px;
+}
+
+/* Tableau prévisions */
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+.forecast-table th {
+  background: #f1f5f9;
+  padding: 8px 6px;
+  text-align: left;
+  font-weight: 700;
+  color: #334155;
+  border-bottom: 2px solid #e2e8f0;
+}
+.forecast-table td {
+  padding: 5px 4px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+.forecast-table td:first-child {
+  font-weight: 700;
+  color: #008751;
+  white-space: nowrap;
+  width: 50px;
+}
+.forecast-table input[type="number"] {
+  width: 58px;
+  padding: 5px;
   font-size: 0.85rem;
 }
+.forecast-table input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  font-size: 0.82rem;
+}
+.forecast-table select {
+  padding: 4px;
+  font-size: 0.85rem;
+  width: 100%;
+}
 
-.live-geo { color: var(--text-muted); font-weight: 600; }
-
-.update-time {
-  background: #cbd5e1;
+/* Badge source */
+.source-badge {
+  display: inline-block;
+  font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 4px;
-  color: var(--text-main);
-  font-size: 0.8rem;
   font-weight: 600;
+  margin-left: 6px;
+  vertical-align: middle;
 }
+.badge-auto { background: #dbeafe; color: #1d4ed8; }
+.badge-manual { background: #fef9c3; color: #854d0e; }
 
-.temp-display {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--text-main);
-}
-
-.weather-desc { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
-
-.weather-details {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-  font-weight: 500;
-}
-
-.user-clock {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 10px;
-  text-align: right;
+.ominfo {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 6px;
   font-style: italic;
-}
-
-.status-badge {
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-top: 15px;
-  text-transform: uppercase;
-}
-
-.status-green { background-color: rgba(16, 185, 129, 0.15); color: #065f46; border: 1px solid rgba(16, 185, 129, 0.3); }
-.status-yellow { background-color: rgba(245, 158, 11, 0.15); color: #92400e; border: 1px solid rgba(245, 158, 11, 0.3); }
-.status-red { background-color: rgba(239, 68, 68, 0.15); color: #991b1b; border: 1px solid rgba(239, 68, 68, 0.3); }
-
-h2 {
-  font-size: 1rem;
-  color: var(--text-main);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-}
-
-.forecast-container {
-  max-height: 380px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr;
-  padding: 12px 0;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.9rem;
-  align-items: center;
-}
-
-.table-row:last-child { border-bottom: none; }
-
-.time { font-weight: 700; color: var(--text-main); }
-.temp-col { font-weight: 600; text-align: center; color: var(--text-main); }
-.desc-col { color: var(--text-muted); text-align: right; font-weight: 500; }
-
-.empty-forecast {
-  text-align: center;
-  color: var(--text-muted);
-  padding: 20px 0;
-  font-style: italic;
-  font-size: 0.9rem;
-}
-
-.ticker-text {
-  background: #f0fdf4;
-  border-left: 4px solid var(--primary);
-  padding: 12px;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #166534;
-  font-weight: 500;
-  border-top: 1px solid #bbf7d0;
-  border-right: 1px solid #bbf7d0;
-  border-bottom: 1px solid #bbf7d0;
 }
 </style>
+<script src="config.js"></script>
 </head>
 <body>
-<div class="app-container">
+<div class="admin-container">
 
   <header>
-    <img src="logo.png" alt="ANM METEO-BENIN" class="logo-meteo">
-    <span class="hashtag">#Meteo1erJuin</span>
+    <h1>METEO-BENIN</h1>
+    <div class="subtitle">Console de Prévision — #Meteo1erJuin — Tori-Bossito, Atlantique</div>
   </header>
 
-  <div class="card">
-    <div class="live-header">
-      <span class="live-geo">📍 TORIBOSITO, ATLANTIQUE</span>
-      <span class="update-time">MàJ: <strong id="last-update">--:--</strong></span>
+  <div id="status-box" class="status-message"></div>
+
+  <form id="meta-form" onsubmit="publishUpdate(event)">
+
+    <div class="section-title">🕒 Conditions en Direct (Tori-Bossito)</div>
+
+    <div class="form-group">
+      <label for="live-temp">Température Actuelle (°C)</label>
+      <input type="number" id="live-temp" required>
     </div>
-    <div class="temp-display">
-      <span id="live-temp">--°C</span>
-      <span id="live-icon">--</span>
+    <div class="form-group">
+      <label for="live-icon">Icône Météo</label>
+      <select id="live-icon">
+        <option value="☀️">☀️ Ensoleillé / Ciel Clair</option>
+        <option value="⛅">⛅ Éclaircies / Partiellement Nuageux</option>
+        <option value="☁️">☁️ Nuageux / Couvert</option>
+        <option value="🌧️">🌧️ Pluie Légère / Averses</option>
+        <option value="⛈️">⛈️ Orageux / Risque de foudre</option>
+        <option value="🌌">🌌 Nuit Calme / Ciel Étoilé</option>
+        <option value="🌅">🌅 Aube / Lever de Soleil</option>
+      </select>
     </div>
-    <div class="weather-desc" id="live-desc">Chargement...</div>
-    <div class="weather-details" id="live-details">Ressenti : -- | Vent : -- | Humidité : --</div>
-    <div class="user-clock">Heure locale : <span id="current-clock">--:--</span></div>
-    <div class="status-badge" id="status-badge">--</div>
-  </div>
+    <div class="form-group">
+      <label for="live-desc">Description du Temps</label>
+      <input type="text" id="live-desc" required>
+    </div>
+    <div class="form-group">
+      <label for="live-ressenti">Température Ressentie (°C)</label>
+      <input type="number" id="live-ressenti" required>
+    </div>
+    <div class="form-group">
+      <label for="live-vent">Force & Direction du Vent</label>
+      <input type="text" id="live-vent" placeholder="Ex: SW 15 km/h" required>
+    </div>
+    <div class="form-group">
+      <label for="live-humidite">Humidité (%)</label>
+      <input type="number" id="live-humidite" min="0" max="100" required>
+    </div>
 
-  <h2>Prévisions — Lundi 1er juin</h2>
-  <div class="card">
-    <div class="forecast-container" id="forecast-container"></div>
-  </div>
+    <div class="section-title">⚠️ Niveau d'Alerte & Vigilance</div>
+    <div class="form-group">
+      <label for="live-status">Statut de Vigilance</label>
+      <select id="live-status">
+        <option value="status-green|🟢 Conditions Optimales">Vert — Conditions Optimales</option>
+        <option value="status-yellow|🟡 Vigilance Jaune">Jaune — Attention Particulière</option>
+        <option value="status-red|🔴 Alerte Météo">Rouge — Danger / Perturbations</option>
+      </select>
+    </div>
 
-  <h2>Dernière Note Flash</h2>
-  <div class="card">
-    <div class="ticker-text" id="flash-note">Chargement de la note officielle...</div>
-  </div>
+    <div class="section-title">📅 Prévisions — Lundi 1er juin (toutes les 3h)</div>
 
+    <button type="button" class="btn-refresh" id="btn-refresh" onclick="loadOpenMeteo()">
+      🔄 Charger / Actualiser depuis Open-Meteo
+    </button>
+    <div class="ominfo">
+      Coordonnées : 6.503°N, 2.145°E (Tori-Bossito) — Source : open-meteo.com<br>
+      <span class="source-badge badge-auto">AUTO</span> = données Open-Meteo &nbsp;|&nbsp;
+      <span class="source-badge badge-manual">MODIFIÉ</span> = valeur corrigée par le prévisionniste
+    </div>
+
+    <table class="forecast-table" style="margin-top:14px;">
+      <thead>
+        <tr>
+          <th>Heure</th>
+          <th>Temp (°C)</th>
+          <th>Icône</th>
+          <th>Description</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-lundi"></tbody>
+    </table>
+
+    <div class="section-title">📢 Note Flash du Prévisionniste</div>
+    <div class="form-group">
+      <label for="flash-note">Message d'information en direct</label>
+      <textarea id="flash-note" rows="3" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">🚀 Publier les Modifications</button>
+  </form>
+
+  <button class="btn-reset-token" onclick="resetToken()">Changer la clé GitHub Token</button>
 </div>
 
 <script>
-let METEO_DATA = null;
+// ── Configuration ────────────────────────────────────────────────
+const LAT = 6.503;
+const LON = 2.145;
+const HOURS = [0, 3, 6, 9, 12, 15, 18, 21]; // créneaux affichés
+const TARGET_DATE = '2026-06-01';             // lundi 1er juin
 
-async function loadMeteoData() {
-  try {
-    const response = await fetch(`Data.json?v=${new Date().getTime()}`);
-    METEO_DATA = await response.json();
-    updateUI();
-  } catch (error) {
-    console.error("Erreur de synchronisation JSON:", error);
+const ICON_OPTIONS = ['☀️','⛅','☁️','🌧️','⛈️','🌌','🌅'];
+
+// Correspondance code WMO → icône + description
+function wmoToIconDesc(code, hour) {
+  const isNight = hour < 6 || hour >= 19;
+  if (code === 0) return { icon: isNight ? '🌌' : '☀️', desc: isNight ? 'Nuit claire' : 'Ciel dégagé' };
+  if (code <= 2)  return { icon: '⛅', desc: 'Partiellement nuageux' };
+  if (code === 3) return { icon: '☁️', desc: 'Couvert' };
+  if (code <= 48) return { icon: '☁️', desc: 'Brume / Brouillard' };
+  if (code <= 57) return { icon: '🌧️', desc: 'Bruine' };
+  if (code <= 67) return { icon: '🌧️', desc: 'Pluie' };
+  if (code <= 77) return { icon: '🌧️', desc: 'Neige / Grésil' };
+  if (code <= 82) return { icon: '🌧️', desc: 'Averses' };
+  if (code <= 86) return { icon: '🌧️', desc: 'Averses de neige' };
+  if (code <= 99) return { icon: '⛈️', desc: 'Orageux' };
+  return { icon: '⛅', desc: 'Variable' };
+}
+
+// ── État ────────────────────────────────────────────────────────
+let currentData = null;
+// Tableau des 8 créneaux : { hour, temp, icon, desc, modified }
+let forecastRows = HOURS.map(h => ({ hour: h, temp: '--', icon: '⛅', desc: '—', modified: false }));
+
+// ── Token GitHub ────────────────────────────────────────────────
+function checkToken() {
+  if (!CONFIG.GITHUB_TOKEN) {
+    let saved = localStorage.getItem('mon_token_github');
+    if (!saved) {
+      saved = prompt("Clé de sécurité requise (GitHub Token) :");
+      if (saved) { localStorage.setItem('mon_token_github', saved); CONFIG.GITHUB_TOKEN = saved; }
+      else showStatus("Erreur : jeton manquant.", "error");
+    } else { CONFIG.GITHUB_TOKEN = saved; }
   }
 }
 
-function updateUI() {
-  if (!METEO_DATA) return;
-
-  document.getElementById('last-update').textContent = METEO_DATA.lastUpdate;
-  document.getElementById('flash-note').innerHTML = `<strong>[Le ${METEO_DATA.lastUpdate}]</strong> ${METEO_DATA.flashNote}`;
-  document.getElementById('live-temp').textContent = `${METEO_DATA.live.temp}°C`;
-  document.getElementById('live-icon').textContent = METEO_DATA.live.icon;
-  document.getElementById('live-desc').textContent = METEO_DATA.live.desc;
-  document.getElementById('live-details').textContent = `Ressenti : ${METEO_DATA.live.ressenti}°C | Vent : ${METEO_DATA.live.vent} | Humidité : ${METEO_DATA.live.humidite}%`;
-
-  const badge = document.getElementById('status-badge');
-  badge.textContent = METEO_DATA.live.statusText;
-  badge.className = `status-badge ${METEO_DATA.live.statusColor}`;
-
-  renderForecasts();
+function resetToken() {
+  localStorage.removeItem('mon_token_github');
+  alert("Clé supprimée. Le panneau va se recharger.");
+  window.location.reload();
 }
 
-function startClock() {
-  const clockElement = document.getElementById('current-clock');
-  setInterval(() => {
-    const now = new Date();
-    clockElement.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  }, 1000);
-  setInterval(loadMeteoData, 60000);
+// ── Open-Meteo ──────────────────────────────────────────────────
+async function loadOpenMeteo() {
+  const btn = document.getElementById('btn-refresh');
+  btn.disabled = true;
+  btn.textContent = '⏳ Chargement Open-Meteo...';
+  showStatus("Connexion à Open-Meteo en cours...", "info");
+
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}`
+      + `&hourly=temperature_2m,apparent_temperature,relativehumidity_2m,windspeed_10m,winddirection_10m,weathercode`
+      + `&wind_speed_unit=kmh&timezone=Africa%2FPorto-Novo`
+      + `&start_date=${TARGET_DATE}&end_date=${TARGET_DATE}`;
+
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Réponse Open-Meteo invalide");
+    const data = await res.json();
+
+    const hours = data.hourly.time.map(t => parseInt(t.split('T')[1].split(':')[0]));
+
+    HOURS.forEach((h, idx) => {
+      const i = hours.indexOf(h);
+      if (i === -1) return;
+
+      // Ne pas écraser ce que le prévisionniste a déjà modifié
+      if (!forecastRows[idx].modified) {
+        const temp = Math.round(data.hourly.temperature_2m[i]);
+        const code = data.hourly.weathercode[i];
+        const { icon, desc } = wmoToIconDesc(code, h);
+        forecastRows[idx] = { hour: h, temp, icon, desc, modified: false };
+      }
+    });
+
+    buildForecastTable();
+    showStatus("✅ Prévisions Open-Meteo chargées avec succès. Corrigez si nécessaire.", "success");
+
+  } catch (err) {
+    showStatus("Erreur Open-Meteo : " + err.message, "error");
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🔄 Charger / Actualiser depuis Open-Meteo';
 }
 
-function renderForecasts() {
-  if (!METEO_DATA) return;
+// ── Construction du tableau ─────────────────────────────────────
+function buildForecastTable() {
+  const tbody = document.getElementById('tbody-lundi');
+  tbody.innerHTML = '';
+
+  forecastRows.forEach((f, idx) => {
+    const iconOptions = ICON_OPTIONS.map(ic =>
+      `<option value="${ic}" ${ic === f.icon ? 'selected' : ''}>${ic}</option>`
+    ).join('');
+
+    const badge = f.modified
+      ? `<span class="source-badge badge-manual">MODIFIÉ</span>`
+      : `<span class="source-badge badge-auto">AUTO</span>`;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${String(f.hour).padStart(2,'0')}:00</td>
+      <td><input type="number" data-idx="${idx}" data-field="temp" value="${f.temp}" min="15" max="45" onchange="markModified(${idx})"></td>
+      <td><select data-idx="${idx}" data-field="icon" onchange="markModified(${idx})">${iconOptions}</select></td>
+      <td><input type="text" data-idx="${idx}" data-field="desc" value="${f.desc}" onchange="markModified(${idx})"></td>
+      <td id="badge-${idx}">${badge}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function markModified(idx) {
+  forecastRows[idx].modified = true;
+  const badge = document.getElementById(`badge-${idx}`);
+  if (badge) badge.innerHTML = `<span class="source-badge badge-manual">MODIFIÉ</span>`;
+}
+
+// ── Collecte des données du tableau ────────────────────────────
+function collectForecastData() {
+  return forecastRows.map((f, idx) => {
+    const tempEl = document.querySelector(`[data-idx="${idx}"][data-field="temp"]`);
+    const iconEl = document.querySelector(`[data-idx="${idx}"][data-field="icon"]`);
+    const descEl = document.querySelector(`[data-idx="${idx}"][data-field="desc"]`);
+    return {
+      hour: f.hour,
+      temp: tempEl ? parseInt(tempEl.value) : f.temp,
+      icon: iconEl ? iconEl.value : f.icon,
+      desc: descEl ? descEl.value : f.desc
+    };
+  });
+}
+
+// ── Chargement initial du Data.json ────────────────────────────
+async function fetchCurrentData() {
+  checkToken();
+  try {
+    const res = await fetch(`Data.json?v=${new Date().getTime()}`);
+    currentData = await res.json();
+
+    document.getElementById('live-temp').value = currentData.live.temp;
+    document.getElementById('live-icon').value = currentData.live.icon;
+    document.getElementById('live-desc').value = currentData.live.desc;
+    document.getElementById('live-ressenti').value = currentData.live.ressenti;
+    document.getElementById('live-vent').value = currentData.live.vent;
+    document.getElementById('live-humidite').value = currentData.live.humidite;
+    document.getElementById('flash-note').value = currentData.flashNote;
+    document.getElementById('live-status').value = `${currentData.live.statusColor}|${currentData.live.statusText}`;
+
+    // Pré-remplir avec le JSON existant (avant Open-Meteo)
+    if (currentData.lundi) {
+      currentData.lundi.forEach((f, idx) => {
+        if (idx < forecastRows.length) {
+          forecastRows[idx] = { ...f, modified: false };
+        }
+      });
+    }
+    buildForecastTable();
+
+    // Charger Open-Meteo automatiquement
+    await loadOpenMeteo();
+
+  } catch (err) {
+    showStatus("Erreur lors de la récupération des données locales.", "error");
+    buildForecastTable();
+  }
+}
+
+// ── Affichage statut ────────────────────────────────────────────
+function showStatus(text, type) {
+  const box = document.getElementById('status-box');
+  box.textContent = text;
+  box.className = `status-message status-${type}`;
+  box.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+// ── Publication GitHub ──────────────────────────────────────────
+async function publishUpdate(e) {
+  e.preventDefault();
+  checkToken();
+  showStatus("Connexion à l'API GitHub et téléversement en cours...", "info");
 
   const now = new Date();
-  const currentDay = now.getDate();
-  const currentHour = now.getHours();
-  const container = document.getElementById('forecast-container');
+  const lastUpdateStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const statusParts = document.getElementById('live-status').value.split('|');
 
-  let html = '';
-  METEO_DATA.lundi.forEach(f => {
-    if (currentDay < 1 || (currentDay === 1 && f.hour >= currentHour) || currentDay > 1) {
-      html += `
-        <div class="table-row">
-          <span class="time">${String(f.hour).padStart(2, '0')}:00</span>
-          <span class="temp-col">${f.temp}°C ${f.icon}</span>
-          <span class="desc-col">${f.desc}</span>
-        </div>`;
+  currentData.lastUpdate = lastUpdateStr;
+  currentData.flashNote = document.getElementById('flash-note').value;
+  currentData.live = {
+    temp: parseInt(document.getElementById('live-temp').value),
+    icon: document.getElementById('live-icon').value,
+    desc: document.getElementById('live-desc').value,
+    ressenti: parseInt(document.getElementById('live-ressenti').value),
+    vent: document.getElementById('live-vent').value,
+    humidite: parseInt(document.getElementById('live-humidite').value),
+    statusText: statusParts[1],
+    statusColor: statusParts[0]
+  };
+  currentData.lundi = collectForecastData();
+
+  const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/contents/${CONFIG.FILE_PATH}`;
+
+  try {
+    const fileCheck = await fetch(url, {
+      headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}` }
+    });
+    if (!fileCheck.ok) throw new Error("Accès refusé. Vérifiez que votre jeton a la permission 'repo'.");
+    const fileData = await fileCheck.json();
+
+    const updateRes = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Authorization": `token ${CONFIG.GITHUB_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: `Mise à jour météo [${lastUpdateStr}] — #Meteo1erJuin`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentData, null, 4)))),
+        sha: fileData.sha
+      })
+    });
+
+    if (updateRes.ok) {
+      showStatus(`☀️ Succès ! Modifications publiées à ${lastUpdateStr}. Le site s'actualise dans quelques secondes...`, "success");
+    } else {
+      const errJson = await updateRes.json();
+      showStatus(`Échec : ${errJson.message}`, "error");
     }
-  });
-  container.innerHTML = html || `<div class="empty-forecast">Fin des prévisions pour l'événement.</div>`;
+  } catch (error) {
+    showStatus(`Erreur : ${error.message}`, "error");
+  }
 }
 
-window.onload = () => {
-  loadMeteoData();
-  startClock();
-};
+window.onload = fetchCurrentData;
 </script>
 </body>
 </html>
