@@ -1,204 +1,24 @@
 {
-  "lastUpdate": "20:09",
-  "flashNote": "Accalmie avec un ciel très nuageux sur la bande côtière.\nSuivez les mises à jour des prévisions météorologiques.",
-  "live": {
-    "temp": 26,
-    "icon": "☁️",
-    "desc": "Accalmie avec ciel très nuageux ",
-    "ressenti": 30,
-    "vent": "ONO 6km/h",
-    "humidite": 88,
-    "statusText": "🟢 Conditions Optimales",
-    "statusColor": "status-green"
-  },
-  "samedi": [
-    {
-      "hour": 1,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
+    "lastUpdate": "00:00",
+    "flashNote": "Suivi météorologique activé pour l'événement de Toribosito. Les prévisions seront mises à jour régulièrement tout au long de la journée.",
+    "live": {
+        "temp": 26,
+        "icon": "🌌",
+        "desc": "NUIT CALME",
+        "ressenti": 27,
+        "vent": "SW 10 km/h",
+        "humidite": 80,
+        "statusText": "🟢 Conditions Favorables",
+        "statusColor": "status-green"
     },
-    {
-      "hour": 4,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 7,
-      "temp": 27,
-      "icon": "🌦️",
-      "desc": "Bruine légère"
-    },
-    {
-      "hour": 10,
-      "temp": 27,
-      "icon": "🌦️",
-      "desc": "Bruine modérée"
-    },
-    {
-      "hour": 13,
-      "temp": 29,
-      "icon": "🌧️",
-      "desc": "Bruine dense"
-    },
-    {
-      "hour": 16,
-      "temp": 29,
-      "icon": "🌦️",
-      "desc": "Averses légères"
-    },
-    {
-      "hour": 19,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 22,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Couvert"
-    }
-  ],
-  "dimanche": [
-    {
-      "hour": 1,
-      "temp": 28,
-      "icon": "☁️",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 2,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 3,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 4,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 5,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 6,
-      "temp": 26,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 7,
-      "temp": 27,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 8,
-      "temp": 28,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 9,
-      "temp": 30,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 10,
-      "temp": 31,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 11,
-      "temp": 32,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 12,
-      "temp": 32,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 13,
-      "temp": 32,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 14,
-      "temp": 31,
-      "icon": "🌤️",
-      "desc": "Peu nuageux"
-    },
-    {
-      "hour": 15,
-      "temp": 31,
-      "icon": "⛅",
-      "desc": "Partiellement nuageux"
-    },
-    {
-      "hour": 16,
-      "temp": 26,
-      "icon": "⛈️",
-      "desc": "Orageux et pluvieux"
-    },
-    {
-      "hour": 17,
-      "temp": 25,
-      "icon": "⛈️",
-      "desc": "Orageux et pluvieux"
-    },
-    {
-      "hour": 18,
-      "temp": 25,
-      "icon": "⛈️",
-      "desc": "Orageux et pluvieux"
-    },
-    {
-      "hour": 19,
-      "temp": 26,
-      "icon": "⛈️",
-      "desc": "Orageux"
-    },
-    {
-      "hour": 20,
-      "temp": 27,
-      "icon": "⛅",
-      "desc": "Très nuageux"
-    },
-    {
-      "hour": 21,
-      "temp": 27,
-      "icon": "⛅",
-      "desc": "Très nuageux"
-    },
-    {
-      "hour": 22,
-      "temp": 26,
-      "icon": "☁️",
-      "desc": "Couvert"
-    },
-    {
-      "hour": 23,
-      "temp": 27,
-      "icon": "☁️",
-      "desc": "Couvert"
-    }
-  ]
+    "lundi": [
+        { "hour": 0,  "temp": 25, "icon": "🌌", "desc": "Nuit calme" },
+        { "hour": 3,  "temp": 25, "icon": "🌌", "desc": "Ciel dégagé" },
+        { "hour": 6,  "temp": 26, "icon": "🌅", "desc": "Aube, brume côtière légère" },
+        { "hour": 9,  "temp": 29, "icon": "⛅", "desc": "Accueil des participants" },
+        { "hour": 12, "temp": 33, "icon": "☀️", "desc": "Pic de chaleur journalier" },
+        { "hour": 15, "temp": 32, "icon": "⛅", "desc": "Partiellement nuageux" },
+        { "hour": 18, "temp": 29, "icon": "⛅", "desc": "Fin de l'événement (19h)" },
+        { "hour": 21, "temp": 27, "icon": "🌌", "desc": "Fin du suivi météo officiel" }
+    ]
 }

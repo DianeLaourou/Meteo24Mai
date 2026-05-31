@@ -3,614 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>METEO-BENIN | Panel d'Administration #Meteo24Mai</title>
+<title>METEO-BENIN | Panel d'Administration #Meteo1erJuin</title>
 <style>
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
-  margin: 0; padding: 20px;
+  margin: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
 }
 
-/* ── Écran PIN ─────────────────────────────────────────── */
-#pin-screen {
-  position: fixed; inset: 0;
-  background: linear-gradient(135deg, #006440 0%, #008751 60%, #00a364 100%);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999;
-}
-.pin-box {
-  background: white;
-  border-radius: 20px;
-  padding: 40px 36px;
-  text-align: center;
-  width: 320px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-.pin-logo { font-size: 2.5rem; margin-bottom: 6px; }
-.pin-title { font-size: 1.3rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
-.pin-subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 24px; }
-
-.pin-dots {
-  display: flex; justify-content: center; gap: 12px;
-  margin-bottom: 24px;
-}
-.pin-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  border: 2px solid #cbd5e1;
-  background: white;
-  transition: all 0.2s;
-}
-.pin-dot.filled { background: #008751; border-color: #008751; }
-.pin-dot.error  { background: #ef4444; border-color: #ef4444; }
-
-.pin-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 12px;
-}
-.pin-key {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 16px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1e293b;
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-}
-.pin-key:hover  { background: #e2e8f0; transform: scale(1.05); }
-.pin-key:active { background: #008751; color: white; transform: scale(0.97); }
-.pin-key.wide   { grid-column: span 2; }
-.pin-key.danger { color: #ef4444; }
-
-.pin-error {
-  font-size: 0.82rem; color: #ef4444;
-  font-weight: 600; min-height: 20px;
-  margin-top: 4px;
-}
-
-/* ── Contenu admin (caché jusqu'au PIN) ────────────────── */
-#admin-content { display: none; width: 100%; max-width: 600px; }
-
 .admin-container {
+  width: 100%;
+  max-width: 600px;
   background: #ffffff;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
 }
+
 header {
-  text-align: center; margin-bottom: 25px;
-  border-bottom: 2px solid #008751; padding-bottom: 15px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #008751;
+  padding-bottom: 15px;
 }
+
 h1 { font-size: 1.5rem; color: #0f172a; margin: 0; }
+
 .subtitle { font-size: 0.9rem; color: #64748b; margin-top: 5px; }
 
 .section-title {
-  font-size: 1rem; color: #008751;
-  margin: 24px 0 10px 0; padding-bottom: 5px;
+  font-size: 1.1rem;
+  color: #008751;
+  margin: 20px 0 10px 0;
+  padding-bottom: 5px;
   border-bottom: 1px solid #e2e8f0;
-  text-transform: uppercase; font-weight: bold;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.form-group { margin-bottom: 14px; }
-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #334155; }
+
+.form-group { margin-bottom: 15px; }
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #334155;
+}
 
 input[type="text"], input[type="number"], textarea, select {
-  width: 100%; padding: 10px;
-  border: 1px solid #cbd5e1; border-radius: 8px;
-  box-sizing: border-box; font-size: 0.95rem;
-  background-color: #f1f5f9; color: #1e293b;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  background-color: #f1f5f9;
+  color: #1e293b;
   transition: all 0.2s;
 }
+
 input:focus, textarea:focus, select:focus {
-  outline: none; border-color: #008751;
-  background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(0,135,81,0.1);
+  outline: none;
+  border-color: #008751;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 135, 81, 0.1);
 }
-
-.alert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
-.alert-option {
-  border: 2px solid transparent; border-radius: 10px;
-  padding: 12px; cursor: pointer; text-align: center;
-  font-weight: 700; font-size: 0.85rem;
-  transition: all 0.2s; opacity: 0.5;
-}
-.alert-option.selected { opacity: 1; border-width: 3px; transform: scale(1.02); }
-.alert-vert   { background: rgba(16,185,129,0.15); color: #065f46; border-color: rgba(16,185,129,0.3); }
-.alert-jaune  { background: rgba(245,158,11,0.15);  color: #92400e; border-color: rgba(245,158,11,0.3); }
-.alert-orange { background: rgba(234,88,12,0.15);   color: #7c2d12; border-color: rgba(234,88,12,0.3); }
-.alert-rouge  { background: rgba(239,68,68,0.15);   color: #991b1b; border-color: rgba(239,68,68,0.3); }
-.alert-vert.selected   { border-color: #10b981; }
-.alert-jaune.selected  { border-color: #f59e0b; }
-.alert-orange.selected { border-color: #ea580c; }
-.alert-rouge.selected  { border-color: #ef4444; }
-
-.forecast-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 8px; }
-.forecast-table th { background: #f1f5f9; padding: 8px; text-align: left; font-weight: 700; color: #475569; border-bottom: 2px solid #e2e8f0; }
-.forecast-table td { padding: 6px 4px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
-.forecast-table input[type="number"] { width: 60px; padding: 5px; font-size: 0.85rem; text-align: center; }
-.forecast-table input[type="text"]   { width: 100%; padding: 5px; font-size: 0.82rem; }
-.forecast-table select               { padding: 5px; font-size: 0.85rem; width: 100%; }
-
-.forecast-tabs { display: flex; gap: 8px; margin-bottom: 10px; }
-.ftab {
-  flex: 1; padding: 8px; border-radius: 8px;
-  border: 1px solid #e2e8f0; background: #f1f5f9;
-  font-weight: 600; font-size: 0.85rem; color: #475569;
-  cursor: pointer; transition: all 0.2s;
-}
-.ftab.active { background: #008751; color: white; border-color: #008751; }
-.ftab-content { display: none; }
-.ftab-content.active { display: block; }
-
-.btn-reload-forecast {
-  background: #e0f2fe; border: 1px solid #bae6fd;
-  color: #0369a1; padding: 8px 14px; border-radius: 8px;
-  font-size: 0.82rem; font-weight: 600; cursor: pointer;
-  margin-top: 10px; transition: background 0.2s;
-}
-.btn-reload-forecast:hover { background: #bae6fd; }
 
 .btn-submit {
-  background-color: #008751; color: white; border: none;
-  padding: 14px; width: 100%; border-radius: 8px;
-  font-size: 1rem; font-weight: bold; cursor: pointer;
-  transition: background 0.2s; margin-top: 20px;
-  box-shadow: 0 4px 6px rgba(0,135,81,0.2);
+  background-color: #008751;
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 135, 81, 0.2);
 }
+
 .btn-submit:hover { background-color: #00663d; }
 
 .status-message {
-  padding: 12px; border-radius: 8px; margin-bottom: 16px;
-  font-size: 0.9rem; text-align: center; display: none;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
 }
+
 .status-success { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-.status-error   { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
-.status-loading { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.status-error { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
 
 .btn-reset-token {
-  background: none; border: none; color: #ef4444;
-  font-size: 0.8rem; cursor: pointer; text-decoration: underline;
-  float: right; margin-top: 5px;
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  float: right;
+  margin-top: 5px;
 }
-.btn-logout {
-  background: none; border: 1px solid #e2e8f0;
-  color: #64748b; font-size: 0.8rem; cursor: pointer;
-  padding: 4px 10px; border-radius: 6px; float: left; margin-top: 5px;
-  transition: all 0.2s;
+
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 10px;
 }
-.btn-logout:hover { background: #fee2e2; color: #b91c1c; border-color: #fecaca; }
+
+.forecast-table th {
+  background: #f1f5f9;
+  padding: 8px;
+  text-align: left;
+  font-weight: 700;
+  color: #334155;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.forecast-table td {
+  padding: 6px 4px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.forecast-table td:first-child {
+  font-weight: 700;
+  color: #008751;
+  white-space: nowrap;
+}
+
+.forecast-table input[type="number"] { width: 60px; padding: 6px; font-size: 0.85rem; }
+.forecast-table input[type="text"] { width: 100%; padding: 6px; font-size: 0.82rem; }
+.forecast-table select { padding: 5px; font-size: 0.85rem; }
 </style>
 <script src="config.js"></script>
 </head>
 <body>
-
-<!-- ══ ÉCRAN PIN ══════════════════════════════════════════ -->
-<div id="pin-screen">
-  <div class="pin-box">
-    <div class="pin-logo">🔐</div>
-    <div class="pin-title">METEO-BENIN</div>
-    <div class="pin-subtitle">Entrez votre code PIN pour accéder au panel</div>
-
-    <div class="pin-dots">
-      <div class="pin-dot" id="dot-0"></div>
-      <div class="pin-dot" id="dot-1"></div>
-      <div class="pin-dot" id="dot-2"></div>
-      <div class="pin-dot" id="dot-3"></div>
-    </div>
-
-    <div class="pin-grid">
-      <div class="pin-key" onclick="pinPress('1')">1</div>
-      <div class="pin-key" onclick="pinPress('2')">2</div>
-      <div class="pin-key" onclick="pinPress('3')">3</div>
-      <div class="pin-key" onclick="pinPress('4')">4</div>
-      <div class="pin-key" onclick="pinPress('5')">5</div>
-      <div class="pin-key" onclick="pinPress('6')">6</div>
-      <div class="pin-key" onclick="pinPress('7')">7</div>
-      <div class="pin-key" onclick="pinPress('8')">8</div>
-      <div class="pin-key" onclick="pinPress('9')">9</div>
-      <div class="pin-key wide" onclick="pinPress('0')">0</div>
-      <div class="pin-key danger" onclick="pinBackspace()">⌫</div>
-    </div>
-    <div class="pin-error" id="pin-error"></div>
-  </div>
-</div>
-
-<!-- ══ CONTENU ADMIN ══════════════════════════════════════ -->
-<div id="admin-content">
 <div class="admin-container">
 
   <header>
     <h1>METEO-BENIN</h1>
-    <div class="subtitle">Console de Prévision en Direct — #Meteo24Mai</div>
+    <div class="subtitle">Console de Prévision en Direct — #Meteo1erJuin — Toribosito, Atlantique</div>
   </header>
 
   <div id="status-box" class="status-message"></div>
 
   <form id="meta-form" onsubmit="publishUpdate(event)">
 
-    <div class="section-title">🕒 Conditions en Direct (Palais des Congrès)</div>
+    <div class="section-title">🕒 Conditions en Direct (Toribosito)</div>
+
     <div class="form-group">
-      <label>Température Actuelle (°C)</label>
+      <label for="live-temp">Température Actuelle (°C)</label>
       <input type="number" id="live-temp" required>
     </div>
+
     <div class="form-group">
-      <label>Icône Météo</label>
+      <label for="live-icon">Icône Météo (Émoji)</label>
       <select id="live-icon">
-        <optgroup label="☀️ Journée">
-          <option value="☀️">☀️ Ensoleillé / Ciel dégagé</option>
-          <option value="🌤️">🌤️ Peu nuageux</option>
-          <option value="⛅">⛅ Partiellement nuageux</option>
-          <option value="🌥️">🌥️ Très nuageux</option>
-          <option value="☁️">☁️ Couvert</option>
-          <option value="🌦️">🌦️ Averses légères</option>
-          <option value="🌧️">🌧️ Pluie modérée</option>
-          <option value="⛈️">⛈️ Orageux</option>
-          <option value="🌩️">🌩️ Orages intenses</option>
-          <option value="🌫️">🌫️ Brouillard / Brume</option>
-        </optgroup>
-        <optgroup label="🌙 Nuit">
-          <option value="🌙">🌙 Nuit claire</option>
-          <option value="🌛">🌛 Nuit peu nuageuse</option>
-          <option value="🌜">🌜 Nuit partiellement nuageuse</option>
-          <option value="🌚">🌚 Nuit nuageuse / Couverte</option>
-          <option value="🌧️">🌧️ Pluie nocturne</option>
-          <option value="⛈️">⛈️ Orages nocturnes</option>
-          <option value="🌩️">🌩️ Orages nocturnes intenses</option>
-          <option value="🌫️">🌫️ Brouillard nocturne</option>
-        </optgroup>
+        <option value="☀️">☀️ Ensoleillé / Ciel Clair</option>
+        <option value="⛅">⛅ Éclaircies / Partiellement Nuageux</option>
+        <option value="☁️">☁️ Nuageux / Couvert</option>
+        <option value="🌧️">🌧️ Pluie Légère / Averses</option>
+        <option value="⛈️">⛈️ Orageux / Risque de foudre</option>
+        <option value="🌌">🌌 Nuit Calme / Ciel Étoilé</option>
+        <option value="🌅">🌅 Aube / Lever de Soleil</option>
       </select>
     </div>
+
     <div class="form-group">
-      <label>Description du Temps</label>
+      <label for="live-desc">Description du Temps</label>
       <input type="text" id="live-desc" required>
     </div>
+
     <div class="form-group">
-      <label>Température Ressentie (°C)</label>
+      <label for="live-ressenti">Température Ressentie (°C)</label>
       <input type="number" id="live-ressenti" required>
     </div>
+
     <div class="form-group">
-      <label>Vent</label>
+      <label for="live-vent">Force & Direction du Vent</label>
       <input type="text" id="live-vent" placeholder="Ex: SW 15 km/h" required>
     </div>
+
     <div class="form-group">
-      <label>Humidité (%)</label>
+      <label for="live-humidite">Humidité (%)</label>
       <input type="number" id="live-humidite" min="0" max="100" required>
     </div>
 
-    <div class="section-title">⚠️ Niveau d'Alerte</div>
-    <div class="alert-grid">
-      <div class="alert-option alert-vert selected" onclick="selectAlert(this,'status-green','🟢 Conditions Optimales')">
-        🟢 VERT<br><small>Conditions optimales</small>
-      </div>
-      <div class="alert-option alert-jaune" onclick="selectAlert(this,'status-yellow','🟡 Vigilance Jaune')">
-        🟡 JAUNE<br><small>Attention particulière</small>
-      </div>
-      <div class="alert-option alert-orange" onclick="selectAlert(this,'status-orange','🟠 Vigilance Orange')">
-        🟠 ORANGE<br><small>Risque modéré</small>
-      </div>
-      <div class="alert-option alert-rouge" onclick="selectAlert(this,'status-red','🔴 Alerte Rouge')">
-        🔴 ROUGE<br><small>Danger / Perturbations</small>
-      </div>
+    <div class="section-title">⚠️ Niveau d'Alerte & Vigilance</div>
+
+    <div class="form-group">
+      <label for="live-status">Statut de Vigilance</label>
+      <select id="live-status">
+        <option value="status-green|🟢 Conditions Optimales">Vert — Conditions Optimales</option>
+        <option value="status-yellow|🟡 Vigilance Jaune">Jaune — Attention Particulière</option>
+        <option value="status-red|🔴 Alerte Météo">Rouge — Danger / Perturbations</option>
+      </select>
     </div>
-    <input type="hidden" id="alert-color" value="status-green">
-    <input type="hidden" id="alert-text"  value="🟢 Conditions Optimales">
+
+    <div class="section-title">📅 Prévisions — Lundi 1er juin (toutes les 3h)</div>
+
+    <table class="forecast-table">
+      <thead>
+        <tr>
+          <th>Heure</th>
+          <th>Temp (°C)</th>
+          <th>Icône</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-lundi"></tbody>
+    </table>
 
     <div class="section-title">📢 Note Flash du Prévisionniste</div>
+
     <div class="form-group">
-      <label>Message d'information en direct</label>
+      <label for="flash-note">Message d'information en direct</label>
       <textarea id="flash-note" rows="3" required></textarea>
     </div>
 
-    <div class="section-title">📅 Prévisions Horaires</div>
-    <div class="forecast-tabs">
-      <button type="button" class="ftab active" id="ftab-sat" onclick="switchFTab('sat')">Samedi 23 mai</button>
-      <button type="button" class="ftab" id="ftab-sun" onclick="switchFTab('sun')">Dimanche 24 mai</button>
-    </div>
-    <div id="ftab-sat-content" class="ftab-content active">
-      <div id="forecast-sat-table">Chargement...</div>
-    </div>
-    <div id="ftab-sun-content" class="ftab-content">
-      <div id="forecast-sun-table">Chargement...</div>
-    </div>
-    <button type="button" class="btn-reload-forecast" onclick="loadOpenMeteo()">
-      🔄 Recharger depuis Open-Meteo
-    </button>
-
-    <button type="submit" class="btn-submit">🚀 Publier toutes les modifications</button>
+    <button type="submit" class="btn-submit">🚀 Publier les Modifications</button>
   </form>
 
-  <button class="btn-logout" onclick="logout()">🔒 Verrouiller</button>
   <button class="btn-reset-token" onclick="resetToken()">Changer la clé GitHub Token</button>
-
-</div>
 </div>
 
 <script>
-// ══ CONFIG PIN ════════════════════════════════════════════════
-// ⚠️ Changez ce code PIN avant de déployer !
-const CORRECT_PIN = "2405";   // PIN par défaut : 2405 (24 Mai)
-const PIN_SESSION_KEY = 'meteo_pin_ok';
-
-let pinInput = '';
-
-function pinPress(digit) {
-  if (pinInput.length >= 4) return;
-  pinInput += digit;
-  updateDots();
-  if (pinInput.length === 4) setTimeout(checkPin, 150);
-}
-
-function pinBackspace() {
-  pinInput = pinInput.slice(0, -1);
-  updateDots();
-  document.getElementById('pin-error').textContent = '';
-}
-
-function updateDots(state = 'filled') {
-  for (let i = 0; i < 4; i++) {
-    const dot = document.getElementById(`dot-${i}`);
-    dot.className = 'pin-dot' + (i < pinInput.length ? ` ${state}` : '');
-  }
-}
-
-function checkPin() {
-  if (pinInput === CORRECT_PIN) {
-    sessionStorage.setItem(PIN_SESSION_KEY, '1');
-    document.getElementById('pin-screen').style.display = 'none';
-    document.getElementById('admin-content').style.display = 'flex';
-    fetchCurrentData();
-  } else {
-    updateDots('error');
-    document.getElementById('pin-error').textContent = 'Code incorrect. Réessayez.';
-    setTimeout(() => {
-      pinInput = '';
-      updateDots();
-      document.getElementById('pin-error').textContent = '';
-    }, 1200);
-  }
-}
-
-function logout() {
-  sessionStorage.removeItem(PIN_SESSION_KEY);
-  pinInput = '';
-  updateDots();
-  document.getElementById('pin-screen').style.display = 'flex';
-  document.getElementById('admin-content').style.display = 'none';
-}
-
-// Vérifier si déjà authentifié dans cette session
-window.addEventListener('DOMContentLoaded', () => {
-  if (sessionStorage.getItem(PIN_SESSION_KEY) === '1') {
-    document.getElementById('pin-screen').style.display = 'none';
-    document.getElementById('admin-content').style.display = 'flex';
-    fetchCurrentData();
-  }
-});
-
-// Support clavier
-document.addEventListener('keydown', e => {
-  if (document.getElementById('pin-screen').style.display === 'none') return;
-  if (e.key >= '0' && e.key <= '9') pinPress(e.key);
-  if (e.key === 'Backspace') pinBackspace();
-});
-
-// ══ ADMIN LOGIC ═══════════════════════════════════════════════
 let currentData = null;
-
-const WMO_ICONS = {
-  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
-  45:'🌫️',48:'🌫️',
-  51:'🌦️',53:'🌦️',55:'🌧️',
-  61:'🌧️',63:'🌧️',65:'🌧️',
-  80:'🌦️',81:'🌧️',82:'⛈️',
-  95:'⛈️',96:'⛈️',99:'⛈️'
-};
-const WMO_DESC = {
-  0:'Ciel dégagé',1:'Peu nuageux',2:'Partiellement nuageux',3:'Couvert',
-  45:'Brouillard',48:'Brouillard',
-  51:'Bruine légère',53:'Bruine modérée',55:'Bruine dense',
-  61:'Pluie légère',63:'Pluie modérée',65:'Pluie forte',
-  80:'Averses légères',81:'Averses modérées',82:'Averses violentes',
-  95:'Orageux',96:'Orage avec grêle',99:'Orage violent'
-};
-const ICON_OPTIONS = ['☀️','🌤️','⛅','🌥️','☁️','🌦️','🌧️','⛈️','🌩️','🌫️','🌙','🌛','🌜','🌚'];
-
-function selectAlert(el, color, text) {
-  document.querySelectorAll('.alert-option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById('alert-color').value = color;
-  document.getElementById('alert-text').value  = text;
-}
-
-function switchFTab(day) {
-  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.ftab-content').forEach(c => c.classList.remove('active'));
-  document.getElementById(`ftab-${day}`).classList.add('active');
-  document.getElementById(`ftab-${day}-content`).classList.add('active');
-}
-
-// Correspondance icône → description par défaut
-const ICON_TO_DESC = {
-  '☀️': 'Ciel dégagé',
-  '🌤️': 'Peu nuageux',
-  '⛅': 'Partiellement nuageux',
-  '🌥️': 'Très nuageux',
-  '☁️': 'Couvert',
-  '🌦️': 'Averses légères',
-  '🌧️': 'Pluie modérée',
-  '⛈️': 'Orageux',
-  '🌩️': 'Orages intenses',
-  '🌫️': 'Brouillard / Brume',
-  '🌙': 'Nuit claire',
-  '🌛': 'Nuit peu nuageuse',
-  '🌜': 'Nuit partiellement nuageuse',
-  '🌚': 'Nuit nuageuse / Couverte',
-};
-
-function onIconChange(selectEl) {
-  const descInput = selectEl.closest('tr').querySelector('[data-field="desc"]');
-  descInput.value = ICON_TO_DESC[selectEl.value] || descInput.value;
-}
-
-function renderForecastTable(containerId, rows) {
-  let html = `<table class="forecast-table">
-    <thead><tr><th>Heure</th><th>°C</th><th>Icône</th><th>Description</th></tr></thead><tbody>`;
-  rows.forEach((r, i) => {
-    html += `<tr>
-      <td><strong>${String(r.hour).padStart(2,'0')}:00</strong></td>
-      <td><input type="number" data-day="${containerId}" data-i="${i}" data-field="temp" value="${r.temp}"></td>
-      <td>
-        <select data-day="${containerId}" data-i="${i}" data-field="icon" onchange="onIconChange(this)">
-          ${ICON_OPTIONS.map(ic => `<option value="${ic}" ${ic===r.icon?'selected':''}>${ic}</option>`).join('')}
-        </select>
-      </td>
-      <td><input type="text" data-day="${containerId}" data-i="${i}" data-field="desc" value="${r.desc}"></td>
-    </tr>`;
-  });
-  html += '</tbody></table>';
-  document.getElementById(containerId).innerHTML = html;
-}
-
-async function loadOpenMeteo() {
-  showStatus("Chargement Open-Meteo...", "loading");
-  try {
-    // GMT+1 = Africa/Porto-Novo, on demande les données en UTC et on décale de +1h
-    const url = 'https://api.open-meteo.com/v1/forecast'
-      + '?latitude=6.3654&longitude=2.4183'
-      + '&hourly=temperature_2m,weathercode'
-      + '&timezone=Africa%2FPorto-Novo&forecast_days=4';
-    const res  = await fetch(url);
-    const data = await res.json();
-    const times = data.hourly.time, temps = data.hourly.temperature_2m, codes = data.hourly.weathercode;
-    let samedi = [], dimanche = [];
-    times.forEach((t, i) => {
-      // t est au format "2025-05-23T01:00" en heure locale GMT+1
-      const dt = new Date(t + ':00+01:00');
-      const day = dt.getDate(), month = dt.getMonth()+1, hour = dt.getHours();
-      const entry = { hour, temp: Math.round(temps[i]), icon: WMO_ICONS[codes[i]]||'🌡️', desc: WMO_DESC[codes[i]]||'Variable' };
-      // Samedi : 01h à 23h, de 3 en 3 (01, 04, 07, 10, 13, 16, 19, 22)
-      if (day===23 && month===5 && hour>=1 && (hour-1)%3===0) samedi.push(entry);
-      // Dimanche : 01h à 23h, de 1 en 1
-      if (day===24 && month===5 && hour>=1 && hour<=23)       dimanche.push(entry);
-    });
-    if (currentData) { currentData.samedi = samedi; currentData.dimanche = dimanche; }
-    renderForecastTable('forecast-sat-table', samedi);
-    renderForecastTable('forecast-sun-table', dimanche);
-    showStatus("✅ Prévisions Open-Meteo chargées. Modifiez si besoin puis publiez.", "success");
-  } catch(e) {
-    showStatus("Erreur Open-Meteo : " + e.message, "error");
-  }
-}
-
-function readForecastTable(containerId) {
-  const rows = [];
-  const cells = document.querySelectorAll(`#${containerId} [data-day="${containerId}"][data-field="temp"]`);
-  cells.forEach((cell, i) => {
-    rows.push({
-      hour: parseInt(cell.closest('tr').querySelector('strong').textContent),
-      temp: parseInt(cell.value),
-      icon: document.querySelector(`#${containerId} [data-day="${containerId}"][data-i="${i}"][data-field="icon"]`).value,
-      desc: document.querySelector(`#${containerId} [data-day="${containerId}"][data-i="${i}"][data-field="desc"]`).value
-    });
-  });
-  return rows;
-}
+const ICON_OPTIONS = ['☀️','⛅','☁️','🌧️','⛈️','🌌','🌅'];
 
 function checkToken() {
   if (!CONFIG.GITHUB_TOKEN) {
-    let saved = localStorage.getItem('mon_token_github');
-    if (!saved) {
-      saved = prompt("Clé GitHub Token requise :");
-      if (saved) localStorage.setItem('mon_token_github', saved);
-      else { showStatus("Impossible sans jeton.", "error"); return false; }
+    let savedToken = localStorage.getItem('mon_token_github');
+    if (!savedToken) {
+      savedToken = prompt("Clé de sécurité requise (Entrez votre GitHub Token) :");
+      if (savedToken) {
+        localStorage.setItem('mon_token_github', savedToken);
+        CONFIG.GITHUB_TOKEN = savedToken;
+      } else {
+        showStatus("Erreur : Impossible de travailler sans jeton de sécurité.", "error");
+      }
+    } else {
+      CONFIG.GITHUB_TOKEN = savedToken;
     }
-    CONFIG.GITHUB_TOKEN = saved;
   }
-  return true;
 }
 
 function resetToken() {
   localStorage.removeItem('mon_token_github');
-  alert("Clé effacée. La page va se recharger.");
+  alert("Clé supprimée. Le panneau va se recharger.");
   window.location.reload();
 }
 
-async function fetchCurrentData() {
-  if (!checkToken()) return;
-  try {
-    const res = await fetch(`Data.json?v=${Date.now()}`);
-    currentData = await res.json();
-    document.getElementById('live-temp').value     = currentData.live.temp;
-    document.getElementById('live-icon').value     = currentData.live.icon;
-    document.getElementById('live-desc').value     = currentData.live.desc;
-    document.getElementById('live-ressenti').value = currentData.live.ressenti;
-    document.getElementById('live-vent').value     = currentData.live.vent;
-    document.getElementById('live-humidite').value = currentData.live.humidite;
-    document.getElementById('flash-note').value    = currentData.flashNote;
-    const colorMap = { 'status-green':'alert-vert','status-yellow':'alert-jaune','status-orange':'alert-orange','status-red':'alert-rouge' };
-    document.querySelectorAll('.alert-option').forEach(o => o.classList.remove('selected'));
-    const cls = colorMap[currentData.live.statusColor];
-    if (cls) document.querySelector(`.${cls}`)?.classList.add('selected');
-    document.getElementById('alert-color').value = currentData.live.statusColor;
-    document.getElementById('alert-text').value  = currentData.live.statusText;
-    if (currentData.samedi)   renderForecastTable('forecast-sat-table', currentData.samedi);
-    if (currentData.dimanche) renderForecastTable('forecast-sun-table', currentData.dimanche);
-    await loadOpenMeteo();
-  } catch(e) {
-    showStatus("Erreur : " + e.message, "error");
-  }
+function buildForecastRows(tbodyId, forecasts) {
+  const tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = '';
+  forecasts.forEach((f, idx) => {
+    const iconOptions = ICON_OPTIONS.map(ic =>
+      `<option value="${ic}" ${ic === f.icon ? 'selected' : ''}>${ic}</option>`
+    ).join('');
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${String(f.hour).padStart(2,'0')}:00</td>
+      <td><input type="number" data-idx="${idx}" data-field="temp" value="${f.temp}" min="15" max="45"></td>
+      <td><select data-idx="${idx}" data-field="icon">${iconOptions}</select></td>
+      <td><input type="text" data-idx="${idx}" data-field="desc" value="${f.desc}"></td>
+    `;
+    tbody.appendChild(row);
+  });
 }
 
-async function publishUpdate(e) {
-  e.preventDefault();
-  if (!checkToken()) return;
-  showStatus("Publication en cours...", "loading");
-  const now = new Date();
-  const lastUpdateStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-  currentData.lastUpdate = lastUpdateStr;
-  currentData.flashNote  = document.getElementById('flash-note').value;
-  currentData.live = {
-    temp:        parseInt(document.getElementById('live-temp').value),
-    icon:        document.getElementById('live-icon').value,
-    desc:        document.getElementById('live-desc').value,
-    ressenti:    parseInt(document.getElementById('live-ressenti').value),
-    vent:        document.getElementById('live-vent').value,
-    humidite:    parseInt(document.getElementById('live-humidite').value),
-    statusText:  document.getElementById('alert-text').value,
-    statusColor: document.getElementById('alert-color').value
-  };
-  currentData.samedi   = readForecastTable('forecast-sat-table');
-  currentData.dimanche = readForecastTable('forecast-sun-table');
-  const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/contents/${CONFIG.FILE_PATH}`;
+function collectForecastData(tbodyId, originalArray) {
+  const rows = document.querySelectorAll(`#${tbodyId} tr`);
+  return Array.from(rows).map((row, idx) => ({
+    hour: originalArray[idx].hour,
+    temp: parseInt(row.querySelector('[data-field="temp"]').value),
+    icon: row.querySelector('[data-field="icon"]').value,
+    desc: row.querySelector('[data-field="desc"]').value
+  }));
+}
+
+async function fetchCurrentData() {
+  checkToken();
   try {
-    const fileCheck = await fetch(url, { headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}` } });
-    if (!fileCheck.ok) throw new Error("Accès refusé. Vérifiez les permissions du token.");
-    const fileData = await fileCheck.json();
-    const updateRes = await fetch(url, {
-      method: "PUT",
-      headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `Mise à jour météo [${lastUpdateStr}]`,
-        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentData, null, 2)))),
-        sha: fileData.sha
-      })
-    });
-    if (updateRes.ok) {
-      showStatus(`✅ Publié à ${lastUpdateStr}. Le site public s'actualise...`, "success");
-    } else {
-      const err = await updateRes.json();
-      showStatus(`Échec : ${err.message}`, "error");
-    }
-  } catch(error) {
-    showStatus(`Erreur : ${error.message}`, "error");
+    const res = await fetch(`Data.json?v=${new Date().getTime()}`);
+    currentData = await res.json();
+
+    document.getElementById('live-temp').value = currentData.live.temp;
+    document.getElementById('live-icon').value = currentData.live.icon;
+    document.getElementById('live-desc').value = currentData.live.desc;
+    document.getElementById('live-ressenti').value = currentData.live.ressenti;
+    document.getElementById('live-vent').value = currentData.live.vent;
+    document.getElementById('live-humidite').value = currentData.live.humidite;
+    document.getElementById('flash-note').value = currentData.flashNote;
+
+    document.getElementById('live-status').value = `${currentData.live.statusColor}|${currentData.live.statusText}`;
+
+    buildForecastRows('tbody-lundi', currentData.lundi);
+
+  } catch (err) {
+    showStatus("Erreur lors de la récupération des données.", "error");
   }
 }
 
@@ -621,6 +324,66 @@ function showStatus(text, type) {
   box.style.display = 'block';
   window.scrollTo(0, 0);
 }
+
+async function publishUpdate(e) {
+  e.preventDefault();
+  checkToken();
+  showStatus("Connexion à l'API GitHub et téléversement en cours...", "success");
+
+  const now = new Date();
+  const lastUpdateStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const statusParts = document.getElementById('live-status').value.split('|');
+
+  currentData.lastUpdate = lastUpdateStr;
+  currentData.flashNote = document.getElementById('flash-note').value;
+  currentData.live = {
+    temp: parseInt(document.getElementById('live-temp').value),
+    icon: document.getElementById('live-icon').value,
+    desc: document.getElementById('live-desc').value,
+    ressenti: parseInt(document.getElementById('live-ressenti').value),
+    vent: document.getElementById('live-vent').value,
+    humidite: parseInt(document.getElementById('live-humidite').value),
+    statusText: statusParts[1],
+    statusColor: statusParts[0]
+  };
+
+  currentData.lundi = collectForecastData('tbody-lundi', currentData.lundi);
+
+  const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/contents/${CONFIG.FILE_PATH}`;
+
+  try {
+    const fileCheck = await fetch(url, {
+      headers: { "Authorization": `token ${CONFIG.GITHUB_TOKEN}` }
+    });
+    if (!fileCheck.ok) throw new Error("Accès refusé. Vérifiez que votre jeton a bien la case 'repo' cochée.");
+    const fileData = await fileCheck.json();
+    const sha = fileData.sha;
+
+    const updateRes = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Authorization": `token ${CONFIG.GITHUB_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: `Mise à jour météo officielle [${lastUpdateStr}] — #Meteo1erJuin`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(currentData, null, 4)))),
+        sha: sha
+      })
+    });
+
+    if (updateRes.ok) {
+      showStatus(`☀️ Succès ! Modifications publiées à ${lastUpdateStr}. Le site public s'actualise dans quelques secondes...`, "success");
+    } else {
+      const errJson = await updateRes.json();
+      showStatus(`Échec du téléversement : ${errJson.message}`, "error");
+    }
+  } catch (error) {
+    showStatus(`Erreur de communication : ${error.message}`, "error");
+  }
+}
+
+window.onload = fetchCurrentData;
 </script>
 </body>
 </html>
