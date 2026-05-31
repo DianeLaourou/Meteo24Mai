@@ -1,15 +1,15 @@
 {
-    "lastUpdate": "17:17",
+    "lastUpdate": "17:19",
     "flashNote": "Suivi météorologique activé pour l'événement de Tori-Bossito. Les prévisions seront mises à jour régulièrement tout au long de la journée.",
     "live": {
         "temp": 26,
-        "icon": "🌙",
+        "icon": "⛅",
         "desc": "NUIT CALME",
         "ressenti": 27,
         "vent": "SW 10 km/h",
         "humidite": 80,
-        "statusText": "🟡 Vigilance Jaune",
-        "statusColor": "status-yellow"
+        "statusText": "🟢 Conditions Optimales",
+        "statusColor": "status-green"
     },
     "lundi": [
         {
