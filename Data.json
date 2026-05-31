@@ -1,5 +1,5 @@
 {
-    "lastUpdate": "00:00",
+    "lastUpdate": "17:17",
     "flashNote": "Suivi météorologique activé pour l'événement de Tori-Bossito. Les prévisions seront mises à jour régulièrement tout au long de la journée.",
     "live": {
         "temp": 26,
@@ -8,17 +8,57 @@
         "ressenti": 27,
         "vent": "SW 10 km/h",
         "humidite": 80,
-        "statusText": "🟢 Conditions Favorables",
-        "statusColor": "status-green"
+        "statusText": "🟡 Vigilance Jaune",
+        "statusColor": "status-yellow"
     },
     "lundi": [
-        { "hour": 0,  "temp": 25, "icon": "🌙", "desc": "Ciel clair" },
-        { "hour": 3,  "temp": 25, "icon": "🌙", "desc": "Ciel clair" },
-        { "hour": 6,  "temp": 26, "icon": "🌤️", "desc": "Ensoleillé" },
-        { "hour": 9,  "temp": 29, "icon": "⛅", "desc": "Partiellement nuageux" },
-        { "hour": 12, "temp": 33, "icon": "☀️", "desc": "Ensoleillé" },
-        { "hour": 15, "temp": 32, "icon": "🌤️", "desc": "Peu nuageux" },
-        { "hour": 18, "temp": 29, "icon": "🌥️", "desc": "Nuageux" },
-        { "hour": 21, "temp": 27, "icon": "🌙", "desc": "Ciel dégagé" }
+        {
+            "hour": 0,
+            "temp": 26,
+            "icon": "🌛",
+            "desc": "Peu nuageux"
+        },
+        {
+            "hour": 3,
+            "temp": 25,
+            "icon": "🌧️",
+            "desc": "Faible pluies"
+        },
+        {
+            "hour": 6,
+            "temp": 25,
+            "icon": "🌥️",
+            "desc": "Partiellement nuageux"
+        },
+        {
+            "hour": 9,
+            "temp": 27,
+            "icon": "🌥️",
+            "desc": "Nuageux"
+        },
+        {
+            "hour": 12,
+            "temp": 31,
+            "icon": "🌦️",
+            "desc": "Bruine"
+        },
+        {
+            "hour": 15,
+            "temp": 33,
+            "icon": "🌦️",
+            "desc": "Bruine"
+        },
+        {
+            "hour": 18,
+            "temp": 32,
+            "icon": "🌥️",
+            "desc": "Nuageux"
+        },
+        {
+            "hour": 21,
+            "temp": 30,
+            "icon": "🌥️",
+            "desc": "Nuageux"
+        }
     ]
 }
