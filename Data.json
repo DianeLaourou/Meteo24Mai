@@ -1,9 +1,9 @@
 {
     "lastUpdate": "00:00",
-    "flashNote": "Suivi météorologique activé pour l'événement de Toribosito. Les prévisions seront mises à jour régulièrement tout au long de la journée.",
+    "flashNote": "Suivi météorologique activé pour l'événement de Tori-Bossito. Les prévisions seront mises à jour régulièrement tout au long de la journée.",
     "live": {
         "temp": 26,
-        "icon": "🌌",
+        "icon": "🌙",
         "desc": "NUIT CALME",
         "ressenti": 27,
         "vent": "SW 10 km/h",
@@ -12,13 +12,13 @@
         "statusColor": "status-green"
     },
     "lundi": [
-        { "hour": 0,  "temp": 25, "icon": "🌌", "desc": "Nuit calme" },
-        { "hour": 3,  "temp": 25, "icon": "🌌", "desc": "Ciel dégagé" },
-        { "hour": 6,  "temp": 26, "icon": "🌅", "desc": "Aube, brume côtière légère" },
-        { "hour": 9,  "temp": 29, "icon": "⛅", "desc": "Accueil des participants" },
-        { "hour": 12, "temp": 33, "icon": "☀️", "desc": "Pic de chaleur journalier" },
-        { "hour": 15, "temp": 32, "icon": "⛅", "desc": "Partiellement nuageux" },
-        { "hour": 18, "temp": 29, "icon": "⛅", "desc": "Fin de l'événement (19h)" },
-        { "hour": 21, "temp": 27, "icon": "🌌", "desc": "Fin du suivi météo officiel" }
+        { "hour": 0,  "temp": 25, "icon": "🌙", "desc": "Ciel clair" },
+        { "hour": 3,  "temp": 25, "icon": "🌙", "desc": "Ciel clair" },
+        { "hour": 6,  "temp": 26, "icon": "🌤️", "desc": "Ensoleillé" },
+        { "hour": 9,  "temp": 29, "icon": "⛅", "desc": "Partiellement nuageux" },
+        { "hour": 12, "temp": 33, "icon": "☀️", "desc": "Ensoleillé" },
+        { "hour": 15, "temp": 32, "icon": "🌤️", "desc": "Peu nuageux" },
+        { "hour": 18, "temp": 29, "icon": "🌥️", "desc": "Nuageux" },
+        { "hour": 21, "temp": 27, "icon": "🌙", "desc": "Ciel dégagé" }
     ]
 }
