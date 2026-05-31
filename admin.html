@@ -215,13 +215,17 @@ input:focus, textarea:focus, select:focus {
     <div class="form-group">
       <label for="live-icon">Icône Météo</label>
       <select id="live-icon">
-        <option value="☀️">☀️ Ensoleillé / Ciel Clair</option>
-        <option value="⛅">⛅ Éclaircies / Partiellement Nuageux</option>
-        <option value="☁️">☁️ Nuageux / Couvert</option>
-        <option value="🌧️">🌧️ Pluie Légère / Averses</option>
-        <option value="⛈️">⛈️ Orageux / Risque de foudre</option>
-        <option value="🌌">🌌 Nuit Calme / Ciel Étoilé</option>
-        <option value="🌅">🌅 Aube / Lever de Soleil</option>
+        <option value="☀️">☀️ Ensoleillé</option>
+        <option value="🌤️">🌤️ Peu nuageux</option>
+        <option value="⛅">⛅ Partiellement nuageux</option>
+        <option value="🌥️">🌥️ Nuageux</option>
+        <option value="☁️">☁️ Couvert</option>
+        <option value="🌦️">🌦️ Averses</option>
+        <option value="🌧️">🌧️ Pluie</option>
+        <option value="⛈️">⛈️ Orage</option>
+        <option value="🌩️">🌩️ Orage violent</option>
+        <option value="🌙">🌙 Nuit claire</option>
+        <option value="🌛">🌛 Nuit peu nuageuse</option>
       </select>
     </div>
     <div class="form-group">
@@ -294,22 +298,27 @@ const LON = 2.145;
 const HOURS = [0, 3, 6, 9, 12, 15, 18, 21]; // créneaux affichés
 const TARGET_DATE = '2026-06-01';             // lundi 1er juin
 
-const ICON_OPTIONS = ['☀️','⛅','☁️','🌧️','⛈️','🌌','🌅'];
+const ICON_OPTIONS = ['☀️','🌤️','⛅','🌥️','☁️','🌦️','🌧️','⛈️','🌩️','🌙','🌛'];
 
-// Correspondance code WMO → icône + description
+// Correspondance code WMO → icône + description (style appli météo)
 function wmoToIconDesc(code, hour) {
   const isNight = hour < 6 || hour >= 19;
-  if (code === 0) return { icon: isNight ? '🌌' : '☀️', desc: isNight ? 'Nuit claire' : 'Ciel dégagé' };
-  if (code <= 2)  return { icon: '⛅', desc: 'Partiellement nuageux' };
-  if (code === 3) return { icon: '☁️', desc: 'Couvert' };
-  if (code <= 48) return { icon: '☁️', desc: 'Brume / Brouillard' };
-  if (code <= 57) return { icon: '🌧️', desc: 'Bruine' };
-  if (code <= 67) return { icon: '🌧️', desc: 'Pluie' };
-  if (code <= 77) return { icon: '🌧️', desc: 'Neige / Grésil' };
-  if (code <= 82) return { icon: '🌧️', desc: 'Averses' };
-  if (code <= 86) return { icon: '🌧️', desc: 'Averses de neige' };
-  if (code <= 99) return { icon: '⛈️', desc: 'Orageux' };
-  return { icon: '⛅', desc: 'Variable' };
+  if (code === 0)  return { icon: isNight ? "🌙" : "☀️",  desc: isNight ? "Ciel clair" : "Ensoleillé" };
+  if (code === 1)  return { icon: isNight ? "🌛" : "🌤️", desc: "Peu nuageux" };
+  if (code === 2)  return { icon: "⛅",  desc: "Partiellement nuageux" };
+  if (code === 3)  return { icon: "🌥️", desc: "Nuageux" };
+  if (code <= 48)  return { icon: "🌫️", desc: "Brouillard" };
+  if (code <= 57)  return { icon: "🌦️", desc: "Bruine" };
+  if (code <= 61)  return { icon: "🌦️", desc: "Pluie faible" };
+  if (code <= 65)  return { icon: "🌧️", desc: "Pluie modérée" };
+  if (code <= 67)  return { icon: "🌧️", desc: "Pluie forte" };
+  if (code <= 77)  return { icon: "🌨️", desc: "Neige" };
+  if (code <= 80)  return { icon: "🌦️", desc: "Averses faibles" };
+  if (code <= 82)  return { icon: "🌧️", desc: "Averses fortes" };
+  if (code <= 86)  return { icon: "🌨️", desc: "Averses de neige" };
+  if (code <= 95)  return { icon: "⛈️", desc: "Orage" };
+  if (code <= 99)  return { icon: "🌩️", desc: "Orage violent" };
+  return { icon: "⛅", desc: "Variable" };
 }
 
 // ── État ────────────────────────────────────────────────────────
